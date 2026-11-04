@@ -110,6 +110,11 @@ as with any pairing. The app adds nothing about you:
 | Network printer jobs | user name `Remote` | Printers log who printed. |
 | Bluetooth LE scans | the phone's rotating random address | Android changes it regularly; the app doesn't change your Bluetooth name. |
 
+**Your device logins on your home network.** Many cameras, printers and older devices only accept plain HTTP or RTSP,
+so the login you saved for them travels unencrypted on your own Wi-Fi, as it does with the maker's own app. If you
+tap "Open live stream in a video player", the stream address, including that camera's login, is handed to the player
+app you pick; that app then connects to the camera itself.
+
 The scanner only listens to what devices announce and reads their public descriptions. It doesn't connect to a device
 or open a remote session until you choose it. Bluetooth pairing happens only when you choose a device and tap Pair.
 
