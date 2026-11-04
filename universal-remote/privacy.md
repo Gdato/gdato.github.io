@@ -48,7 +48,7 @@ logins, keys and tokens, are excluded from Google backup and from phone-to-phone
 (AES-256-GCM, key derived with PBKDF2), and it goes only where you save it. Car or machine recordings (CSV) are also
 saved only where you choose. If you save either to a cloud folder, that service's own privacy terms apply.
 
-**Home-screen shortcuts** (Pro) store the device's name and an internal reference with your launcher.
+**Home-screen shortcuts and widgets** (Pro) store the device's name and an internal reference with your launcher. A widget only opens the app on that device: it never contacts the device and runs on no schedule.
 
 **Diagnostics log.** Only in developer mode, the app writes technical events (event names, device addresses, timings,
 error codes; never passwords, keys or tokens) to Android's system log on the phone. It is never uploaded. It can be
