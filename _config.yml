@@ -1,0 +1,7 @@
+title: Gdato
+description: Apps by Gdato
+theme: jekyll-theme-primer
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
