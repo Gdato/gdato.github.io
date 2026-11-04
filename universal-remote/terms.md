@@ -9,7 +9,7 @@ Effective date: 4 November 2026
 Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
-These terms are for the Android app "Universal Remote: Control & Diagnostics" (package `com.gdato.universalremote`).
+These terms are for the Android app "Universal Remote & Diagnostics" (package `com.gdato.universalremote`).
 We've tried to write them the way we'd want to read them: short and plain. By using the app you agree to them. The
 privacy policy ([privacy.md](privacy.md)) is part of these terms.
 
@@ -18,16 +18,18 @@ privacy policy ([privacy.md](privacy.md)) is part of these terms.
 An app for the people, by the people: made by people who use it themselves, for the people who use it. It isn't a
 way to collect data or to sell you anything beyond the one optional Pro unlock. So:
 
-1. **No tracking.** There's no account, no analytics, no advertising ID and no crash reporting. We don't learn who
+1. **No tracking.** There's no account with us, no analytics, no advertising ID and no crash reporting. We don't learn who
    you are, which devices you have or what you do with them. The one component we didn't write ourselves that talks
    to the internet is Google's Play Billing library, and it runs only when you open the Pro page (or, if you own Pro,
    about once a week to confirm the purchase); see the privacy policy for exactly what it does.
 2. **No ads.** Not in the free version, not in Pro. The app contains no advertising code, and we won't add any.
 3. **No hidden processes.** The app talks only to the devices you choose, on your own Wi-Fi or over Bluetooth, and
    to Google Play to check and handle the Pro purchase. We wrote no background service, scheduled task or
-   start-with-the-phone code. When you leave the app, it at once stops anything that moves, its scans and its status
-   checks; only a file you cast to a TV stays available to that TV for up to 30 minutes, so it can finish playing. The one
-   exception is again Google's Play Billing library, which may send its report to Google a little later, when Android
+   start-with-the-phone code. When you leave the app, its scans, status refreshes, live views and keep-alive
+   connections pause, and hold-to-move controls, the mower joystick and mower blades the app switched on stop. A job
+   you sent to a device, such as starting a robot vacuum, a mowing run or opening a gate, is finished by the device
+   itself, by design. A file you cast to a TV stays available on your home network while it plays, for up to 30
+   minutes. The one exception is again Google's Play Billing library, which may send its report to Google a little later, when Android
    schedules it; the privacy policy explains this.
 
 If we ever have to change one of these, we'll say so clearly in the app before the change takes effect, and you can
@@ -43,14 +45,18 @@ how you use the app and for following the laws where you live.
 
 - **Things that move.** TV lifts, beds, desks, blinds, gates, robot vacuums and mowers move physically. Keep people,
   children, pets and objects clear, and stay where you can see the device while it moves. Hold-to-move controls stop
-  when you let go, and the app stops moving devices when you leave it, but a device's own safety features are what
-  you should rely on.
+  when you let go, and when you leave the app it stops hold-to-move motors, the mower joystick and the mower blades.
+  A job you started (cleaning, mowing, opening or closing a gate) carries on until the device finishes it. A device's
+  own safety features are what you should rely on.
 - **Mains power.** Plugs and switches turn mains devices on and off. Don't use the app to switch things that are
   unsafe to leave unattended or to switch remotely.
 - **Cars.** Car and machine diagnostics (OBD-II, J1939) are read-only: the app reads values and fault codes and never
   clears codes or changes settings. Don't operate the app while you drive.
-- **Beta devices.** Devices marked Beta use commands taken from public sources that we haven't yet been able to test on
-  that exact hardware. They may not work, or may behave differently than described. Try them carefully.
+- **Which devices we tested.** Devices not marked Beta work with protocols documented by their makers or used by
+  established open-source projects. Only those marked "Tested on our hardware" were tested by us; others may behave
+  differently with your model or firmware.
+- **Beta devices.** Devices marked Beta are implemented from public sources, often a single one, and aren't confirmed
+  working yet. They may not work, or may behave differently than described. Try them carefully.
 
 ## 4. No warranty
 

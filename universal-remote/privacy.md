@@ -9,16 +9,19 @@ Effective date: 4 November 2026
 Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
-This policy is for the Android app "Universal Remote: Control & Diagnostics" (package `com.gdato.universalremote`) as
+This policy is for the Android app "Universal Remote & Diagnostics" (package `com.gdato.universalremote`) as
 distributed on Google Play. It goes with the [terms of use](terms.md).
 
 ## The short version
 
-- **No tracking.** No account, no analytics, no advertising ID, no crash reporting. We have no server, so we receive
+- **No tracking.** No account with us, no analytics, no advertising ID, no crash reporting. We have no server, so we receive
   nothing about you, your phone or your devices.
 - **No ads.** Not in the free version, not in Pro. There is no advertising code in the app.
 - **No hidden processes.** The app talks only to the devices you choose, on your Wi-Fi or over Bluetooth, and to
   Google Play for the Pro purchase. We wrote no background service, scheduled task or start-with-the-phone code.
+  When you leave the app, its scans, status refreshes, live views and keep-alive connections pause; a job you sent to a
+  device (cleaning, mowing, opening a gate) is finished by the device, and a file you cast stays available while it
+  plays, for up to 30 minutes.
 
 There is one exception you should know about, and it comes from Google, not from us: the **Google Play Billing
 library**, which apps that sell through Google Play build in. It sends Google its own technical reports, described
@@ -33,19 +36,23 @@ Everything the app knows is kept in its private storage on your phone, which oth
 | Your saved devices: names, addresses, presets, settings, and the passwords, keys or tokens you enter for them | To connect to those devices again | App storage (`profiles`) |
 | App settings (developer mode, quiet discovery, that you accepted the first-run notice) | To remember your choices | App storage (`settings`) |
 | Whether you own Pro | So Pro works offline | App storage (`pro`) |
-| Fingerprints of the security certificates your TVs, speakers and hubs use | To refuse a different machine pretending to be your device | App storage (`tls_pins`) |
+| Fingerprints of the security certificates your TVs, speakers and hubs use | To refuse a different machine pretending to be your device. A changed certificate is always refused; to accept it, forget the device and add it again | App storage (`tls_pins`) |
+| Which home-screen widget opens which saved device (Pro) | So each widget opens the right device | App storage (`widgets`) |
+| The phone's own Bluetooth name, only if an earlier version's Quiet discovery masked it and a pairing was interrupted | So the app can put the name back at its next start; the entry is then deleted | App storage (`incognito`) |
 | Pairing keys for Android TV and network debugging (ADB) | So a TV or box you paired accepts the phone again | Android Keystore, which doesn't let the key leave the phone |
-| Temporary files: a spoken announcement or a file you send to a speaker or TV | To serve it to that device; a file you cast stays available to that device only, for up to 30 minutes, so it can finish playing | App cache; Android may clear it at any time |
+| Temporary files: a spoken announcement or a file you send to a speaker or TV | To serve it to that device. While it plays, a cast file is served by a small temporary server in the app at a random address on your home network, which other devices on that network could also reach. Only one such server runs at a time: casting the next file stops the previous one. It stops after 30 minutes at most, and the copied file is then deleted | App cache; Android may clear it at any time |
 
 Scan results exist only while the app is open. The app doesn't use your location, contacts, photos or files, except a
 file you pick yourself.
 
 **Android's own backup.** If you have turned on backup to your Google account in Android's settings, Android may copy
-the app's settings, the Pro flag and the certificate fingerprints into that backup. Your saved devices, with their
-logins, keys and tokens, are excluded from Google backup and from phone-to-phone transfer.
+only the app's settings (`settings`: theme and developer options, and that you accepted the first-run notice) into that
+backup. Your saved devices with their logins, keys and tokens, the certificate fingerprints, the widget list, the
+`incognito` entry and the Pro flag are all excluded from Google backup and from phone-to-phone transfer. Pro is restored
+from Google Play instead ("Restore purchase").
 
-**Files you create.** With Pro you can save a backup of your devices. It is encrypted with a password you choose
-(AES-256-GCM, key derived with PBKDF2), and it goes only where you save it. Car or machine recordings (CSV) are also
+**Files you create.** With Pro you can save a backup of your devices. It is encrypted with a password you choose, at least 10
+characters (AES-256-GCM, key derived with PBKDF2 at 600,000 iterations), and it goes only where you save it. Car or machine recordings (CSV) are also
 saved only where you choose. If you save either to a cloud folder, that service's own privacy terms apply.
 
 **Home-screen shortcuts and widgets** (Pro) store the device's name and an internal reference with your launcher. A widget only opens the app on that device: it never contacts the device and runs on no schedule.
@@ -61,10 +68,12 @@ exceptions in the Google Play version.
 
 ### 1. Google Play, for the Pro purchase
 
-Only when you open the Pro page (from Settings, or when you reach the free limit of 2 devices), buy, or tap "Restore
-purchase", the app asks the Google Play app on your phone whether your Google account owns Pro and what it costs. If you
+Only when you open a Pro feature or the Pro page, buy, or tap "Restore purchase", the app asks the Google Play app on your phone whether your Google account owns Pro and what it costs. If you
 own Pro, the app also confirms the purchase about once a week when it starts, so a refunded purchase doesn't stay
-unlocked. If you use the free version and never open the Pro page, the app doesn't contact Google Play at all. When you buy, Google Play shows its own
+unlocked. The Pro page opens from Settings, when you reach the free limit of 2 devices, and when you tap a Pro feature as a
+free user: the developer-mode switch, backup and restore, home-screen shortcuts and widgets, and the Pro locks on the
+camera, dashcam and car-diagnostics screens. If you use the free version and never open a Pro feature or the Pro page,
+the app doesn't contact Google Play at all. When you buy, Google Play shows its own
 payment screen. Google Play then talks to Google using your Google account. What Google receives from the app: its
 package name, the product (`pro_unlock`) and, after a purchase, a confirmation for that purchase (so Google doesn't
 refund it automatically). We never receive your name, email address or payment details.
@@ -75,8 +84,8 @@ The Play Billing library, written and supplied by Google, is part of the app. It
 work (for example which billing step ran and its result, and the library version) to Google's logging service at
 `firebaselogging.googleapis.com` and `firebaselogging-pa.googleapis.com`. The library decides what goes in these
 reports, not us. It uses Android's job scheduler, so a report may be sent a little later, also while the app isn't
-open. This happens only when the app talks to Google Play (see above), never for a free user who doesn't open the Pro
-page. We don't receive these reports and can't see them.
+open. This happens only when the app talks to Google Play (see above), never for a free user who doesn't open a Pro
+feature or the Pro page. We don't receive these reports and can't see them.
 
 Both are covered by [Google's privacy policy](https://policies.google.com/privacy).
 
@@ -86,6 +95,12 @@ Both are covered by [Google's privacy policy](https://policies.google.com/privac
   when you use the TV's own YouTube app. The app itself doesn't contact YouTube.
 - **Your devices' own internet use.** Some commands make a device contact its maker, for example "check for updates"
   on a smart plug, or opening a web address on a TV. That traffic is between the device and its maker.
+- **Accounts with device makers.** We have no accounts. A few devices, such as TP-Link Tapo plugs and Roborock or
+  Dreame robot vacuums, need a login or a token that comes from the maker's own cloud account, which you set up in the
+  maker's app. This app doesn't create such accounts and doesn't contact the maker's cloud; it uses the login or token
+  only to talk to the device on your home network.
+- **Pictures on the Cast screen.** The app shows cover art only when it comes from a device on your home network. It
+  never fetches images from the internet.
 - **Opening a device's web page** hands the address to your browser, which loads the page from the device on your
   network.
 - **Spoken announcements** are made by the text-to-speech engine chosen in your phone's settings. The app doesn't ask
@@ -108,9 +123,10 @@ as with any pairing. The app adds nothing about you:
 | Android TV client certificate | `CN=remote` | Made in the Android Keystore; no personal data. |
 | ADB public key comment | `remote@phone` | The box lists it under "Allowed computers". |
 | Network printer jobs | user name `Remote` | Printers log who printed. |
-| Bluetooth LE scans | the phone's rotating random address | Android changes it regularly; the app doesn't change your Bluetooth name. |
+| Bluetooth LE scans | the phone's rotating random address | Android changes it regularly. The app doesn't change your Bluetooth name; it only puts back a name an earlier version masked (see "What stays on your phone"). |
 
-**Your device logins on your home network.** Many cameras, printers and older devices only accept plain HTTP or RTSP,
+**Your device logins on your home network.** A camera login is sent only to that camera's saved address, and only
+after the camera asks for it; the app prefers Digest authentication, which doesn't send the password itself. Many cameras, printers and older devices only accept plain HTTP or RTSP,
 so the login you saved for them travels unencrypted on your own Wi-Fi, as it does with the maker's own app. If you
 tap "Open live stream in a video player", the stream address, including that camera's login, is handed to the player
 app you pick; that app then connects to the camera itself.
