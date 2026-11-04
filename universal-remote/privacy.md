@@ -5,8 +5,8 @@ permalink: /universal-remote/privacy
 
 # Universal Remote: privacy policy
 
-Effective date: 4 November 2026
-Publisher: Gdato, Switzerland
+Effective date: 4 November 2026  
+Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
 This policy is for the Android app "Universal Remote: Control & Diagnostics" (package `com.gdato.universalremote`) as

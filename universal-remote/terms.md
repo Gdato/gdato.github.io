@@ -5,8 +5,8 @@ permalink: /universal-remote/terms
 
 # Universal Remote: terms of use
 
-Effective date: 4 November 2026
-Publisher: Gdato, Switzerland
+Effective date: 4 November 2026  
+Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
 These terms are for the Android app "Universal Remote: Control & Diagnostics" (package `com.gdato.universalremote`).
