@@ -117,7 +117,7 @@ as with any pairing. The app adds nothing about you:
 | HTTP `User-Agent` (UPnP descriptions, Samsung, Kodi, Sonos, Bose, Sony, Panasonic and others) | `Remote` | Android's default would name the phone model and build. |
 | SSDP search | the standard search only, no `USER-AGENT` header | The header is optional in UPnP. |
 | mDNS | queries only; the app announces no service | |
-| Maker discovery broadcasts (WiZ, LIFX, Yeelight, Govee, Kasa, Gree, Onkyo, PJLink, Lyrion, dashcams) | each maker's standard "who is there?" question on your home network, nothing about you | Sent only while the scanner is open, never in quiet discovery. |
+| Maker discovery broadcasts (WiZ, LIFX, Yeelight, Govee, Twinkly, Broadlink, Kasa, Gree, Onkyo, PJLink, Lyrion, Ecowitt, dashcams) | each maker's standard "who is there?" question on your home network, nothing about you | Sent only while the scanner is open, never in quiet discovery. |
 | Samsung TV remote name | `Remote` | Shown on the TV's Allow prompt. |
 | Android TV pairing name | `remote` / `Phone remote` | Shown on the TV once. |
 | LG TV pairing | no name; the TV shows its standard prompt | |
