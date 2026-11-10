@@ -29,7 +29,7 @@
   <li class="app-card window{% if a.status == 'soon' %} app-card--soon{% endif %}">
     <div class="window__bar" aria-hidden="true"><span class="window__box"></span><span class="window__name">{{ a.name }}</span></div>
     {%- if a.shot %}
-    <div class="app-card__screen">{% include monitor.html shot=a.shot peek=true lazy=true %}</div>
+    <div class="app-card__screen">{% include monitor.html shot=a.shot lazy=true small=true %}</div>
     {%- else %}
     <div class="app-card__screen app-card__screen--drawing">{% include mockups/{{ a.id }}.svg %}<span class="tag tag--soon">A drawing for now</span></div>
     {%- endif %}
