@@ -6,10 +6,18 @@
 # kind:        one short line under the name on the app page.
 # bullets:     2-3 short points for the card on the home page.
 # features:    the feature list of the app page.
-# screenshots: optional list of images for the app page, e.g.
-#                - src: /assets/shots/jasstafel-1.png
-#                  alt: "The slate during a Schieber"
-#              Leave it out and the page shows no screenshot section.
+# shot:        the main screenshot, taken from the real app. It replaces the drawing on the home page and on the app page,
+#              where it is shown on a drawn old monitor.
+#                src:     the files without their ending: <src>-540.webp and <src>-1080.webp (the whole screen, 540 and
+#                         1080 pixels wide) and <src>-card.webp (540 wide, only the upper part, for the home page).
+#                         Their pixel sizes are in _data/shots.yml.
+#                dark:    optional, the same three files for visitors who use a dark theme.
+#                alt:     what the picture shows, for people who cannot see it.
+#                caption: one line under the picture on the app page.
+#              Leave it out and the pages show the drawing from _includes/mockups, labelled as a drawing.
+#              Screenshots and their texts show no brand or product names of other companies.
+# screenshots: optional list for the "Screenshots" section of the app page, each with src, alt and caption as above
+#              (only <src>-540.webp and <src>-1080.webp are needed). Leave it out and the page shows no such section.
 - id: universal-remote
   name: "Universal Remote"
   full_name: "Universal Remote: Control & Diagnostics"
@@ -36,6 +44,17 @@
       text: "Each device says whether I tested it on my own hardware or whether it is still Beta."
     - title: "Free to try, Pro once."
       text: "Scanning, diagnostics, guides and two saved devices are free. Pro is a one-time purchase, not a subscription."
+  shot:
+    src: /assets/shots/universal-remote/home
+    alt: "Screenshot of Universal Remote in its dark theme: the My devices page before any device is saved, with the buttons Add device, Bluetooth audio, Pairing guide and Compatibility."
+    caption: "A fresh start. No account, no setup wizard: stand near a device and add it."
+  screenshots:
+    - src: /assets/shots/universal-remote/add-device
+      alt: "Screenshot: the Add device page with a radar that searches for nearby devices, and the filters Compatible and All, both still at zero."
+      caption: "Add device scans what is around you. Here it runs with nothing nearby."
+    - src: /assets/shots/universal-remote/pairing-guide
+      alt: "Screenshot: the Pairing guide with four numbered steps and a Troubleshooting list below."
+      caption: "The pairing guide: four steps, and help for when a device does not show up."
   tagline:
     en: "Control and check your own Bluetooth and Wi-Fi devices, locally. No tracking, no ads, no hidden processes."
     de: "Eigene Bluetooth- und WLAN-Geräte lokal steuern und prüfen. Kein Tracking, keine Werbung, keine versteckten Prozesse."
@@ -77,6 +96,33 @@
       text: "Three text sizes, big buttons, high contrast."
     - title: "Private."
       text: "No ads, no analytics, no account. Your games stay on your phone."
+  shot:
+    src: /assets/shots/jasstafel/slate
+    dark: /assets/shots/jasstafel/slate-dark
+    alt: "Screenshot of Jass Tafel during a Schieber: Vreni & Ueli have 1493 points, Beat & Ruth 1139. On the slate each team has a chalk Z with strokes of 100 on the top line, crosses of 50 on the diagonal, strokes of 20 on the bottom line and the rest written at the bottom right."
+    caption: "A Schieber to 2500, mid-game. Each team has its Z: 100s on top, 50s on the slant, 20s below, the rest at the bottom right."
+  screenshots:
+    - src: /assets/shots/jasstafel/trump
+      alt: "Screenshot: round 12 asks Which trump? with six big tiles: Acorns and Roses count once, Bells and Shields twice, Top-down three times, Bottom-up four times."
+      caption: "Writing a round starts with the trump, on Swiss cards here. The factors come from your house rules."
+    - src: /assets/shots/jasstafel/points
+      alt: "Screenshot: the points step with a large keypad. Vreni & Ueli made 86 with Bells as trump, the app gives Beat & Ruth the remaining 71 and shows plus 172 and plus 142 after the factor of two."
+      caption: "Type the points of one team. The app works out the other team and the factor."
+    - src: /assets/shots/jasstafel/coiffeur
+      alt: "Screenshot: a Coiffeur table with the rows Acorns to Bottom-up and two team columns, partly filled. Hans & Heidi lead Sepp & Trudi by 146 to 106."
+      caption: "Coiffeur: every row once per team, multiplied by the row's factor."
+    - src: /assets/shots/jasstafel/differenzler
+      alt: "Screenshot: a Differenzler table for Vreni, Ueli, Beat and Ruth after five of twelve rounds. Each cell shows the call, the points made, the penalty and the running total. Vreni leads with 22."
+      caption: "Differenzler: call, points made and penalty for every player, round by round."
+    - src: /assets/shots/jasstafel/rules
+      alt: "Screenshot: the rules page for Schieber explains how to read the slate, with a labelled Z: 7 strokes of 100, 3 of 50, 6 of 20 and a rest of 13 make 983."
+      caption: "Never read a slate before? The rules page explains the Z."
+    - src: /assets/shots/jasstafel/home
+      alt: "Screenshot: the start page with Continue game, New game, Rules and earlier games of Coiffeur and Schieber."
+      caption: "Games are saved by themselves. Pick one up where you left it."
+    - src: /assets/shots/jasstafel/slate-dark
+      alt: "Screenshot: the same Schieber slate in the dark theme, with both chalk Zs and a yellow Write round button."
+      caption: "The same slate in the dark theme."
   tagline:
     en: "Jass scorer for Schieber, Differenzler and Coiffeur: slate, house rules, no ads."
     de: "Jass-Zähler für Schieber, Differenzler, Coiffeur: Tafel, Hausregeln, werbefrei."

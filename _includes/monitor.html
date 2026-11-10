@@ -1,0 +1,28 @@
+{%- comment -%}
+  A real screenshot on a drawn old monitor. Parameters: shot (an entry with src, alt and optionally dark, see _data/apps.yml),
+  peek (true: only the upper part of the screen, for the cards), lazy (true: load when scrolled to),
+  small (true: the picture is shown about 216 pixels wide, as in the gallery).
+  Files per screenshot: <src>-540.webp and <src>-1080.webp (the whole screen), <src>-card.webp (the upper part).
+  Their pixel sizes are in _data/shots.yml. The monitor itself is CSS (.crt in assets/style.css);
+  "shot_frame: handheld" in _config.yml draws a pocket organiser instead.
+{%- endcomment -%}
+{%- assign s = include.shot -%}
+{%- assign d = site.data.shots -%}
+{%- assign sizes = "270px" -%}
+{%- if include.small %}{% assign sizes = "216px" %}{% endif -%}
+<span class="crt{% if include.peek %} crt--peek{% endif %}{% if site.shot_frame == 'handheld' %} crt--handheld{% endif %}">
+  <span class="crt__tube">
+    <picture>
+      {%- if include.peek %}
+      {%- if s.dark %}<source media="(prefers-color-scheme: dark)" srcset="{{ s.dark | append: '-card.webp' | relative_url }}">{% endif %}
+      <img src="{{ s.src | append: '-card.webp' | relative_url }}" width="{{ d.width }}" height="{{ d.card_height }}" alt="{{ s.alt | escape }}"{% if include.lazy %} loading="lazy"{% endif %} decoding="async">
+      {%- else %}
+      {%- if s.dark %}<source media="(prefers-color-scheme: dark)" srcset="{{ s.dark | append: '-540.webp' | relative_url }} 540w, {{ s.dark | append: '-1080.webp' | relative_url }} 1080w" sizes="{{ sizes }}">{% endif %}
+      <img src="{{ s.src | append: '-540.webp' | relative_url }}" srcset="{{ s.src | append: '-540.webp' | relative_url }} 540w, {{ s.src | append: '-1080.webp' | relative_url }} 1080w" sizes="{{ sizes }}" width="{{ d.width }}" height="{{ d.height }}" alt="{{ s.alt | escape }}"{% if include.lazy %} loading="lazy"{% endif %} decoding="async">
+      {%- endif %}
+    </picture>
+  </span>
+  {%- unless include.peek %}
+  <span class="crt__chin" aria-hidden="true"><span class="crt__vents"></span><span class="crt__slot"></span><span class="crt__led"></span></span>
+  {%- endunless %}
+</span>

@@ -34,7 +34,7 @@ layout: default
 <div class="pays">
 {%- for m in pay.methods %}
 {%- assign tag = m.id | append: "_tag" %}{%- assign intro = m.id | append: "_intro" %}{%- assign button = m.id | append: "_button" %}
-<section class="window pay" aria-labelledby="{{ m.id }}-title">
+<section class="window pay{% if m.link == "" %} pay--soon{% endif %}" aria-labelledby="{{ m.id }}-title">
   <div class="window__bar" aria-hidden="true"><span class="window__box"></span><span class="window__name">{{ t[tag] }}</span></div>
   <div class="window__body">
     <h3 id="{{ m.id }}-title">{{ m.name }}</h3>
@@ -43,7 +43,7 @@ layout: default
     {%- if m.link != "" %}
     <p class="pay__action"><a class="btn btn--accent" rel="noopener noreferrer" href="{{ m.link }}">{{ t[button] }} <span aria-hidden="true">↗</span></a></p>
     {%- else %}
-    <p class="pay__action"><span class="tag tag--soon">{{ t.link_soon }}</span></p>
+    <p class="pay__action"><span class="pay__soon">{{ t.link_soon }}</span></p>
     {%- endif %}
   </div>
 </section>

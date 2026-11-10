@@ -35,8 +35,13 @@ layout: default
   </div>
   <figure class="window app-hero__shot">
     <div class="window__bar" aria-hidden="true"><span class="window__box"></span><span class="window__name">{{ app.name }}</span></div>
+    {%- if app.shot %}
+    <div class="stage">{% include monitor.html shot=app.shot %}</div>
+    <figcaption class="note">{{ app.shot.caption }}</figcaption>
+    {%- else %}
     {% include mockups/{{ app.id }}.svg %}
     <figcaption class="note">A drawing, not a screenshot. The real thing looks better.</figcaption>
+    {%- endif %}
   </figure>
 </section>
 
@@ -56,11 +61,19 @@ layout: default
 {%- if app.screenshots %}
 <section aria-labelledby="shots-title">
   <h2 class="section-title" id="shots-title">Screenshots</h2>
-  <ul class="shots">
-    {%- for s in app.screenshots %}
-    <li><img src="{{ s.src | relative_url }}" alt="{{ s.alt | escape }}" loading="lazy"></li>
-    {%- endfor %}
-  </ul>
+  <p class="note">Straight from the app, with made-up games and names. Only the old {% if site.shot_frame == 'handheld' %}pocket organiser{% else %}monitor{% endif %} around them is drawn; the apps run on Android phones.</p>
+  <div class="shots-scroll" role="region" aria-labelledby="shots-title" tabindex="0">
+    <ul class="shots">
+      {%- for s in app.screenshots %}
+      <li>
+        <figure class="shot">
+          {% include monitor.html shot=s lazy=true small=true %}
+          <figcaption>{{ s.caption }}</figcaption>
+        </figure>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
 </section>
 {%- endif %}
 

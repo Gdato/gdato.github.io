@@ -1,0 +1,5 @@
+# Written by the screenshot script, do not edit: the pixel size of the files in assets/shots.
+# <name>-540.webp is width x height, <name>-1080.webp twice that, <name>-card.webp is width x card_height.
+width: 540
+height: 1032
+card_height: 856
