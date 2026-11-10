@@ -58,7 +58,7 @@
   <footer class="foot wrap{% if page.window == false %} wrap--wide{% endif %}" id="contact">
     <div class="foot__grid">
       <div class="foot__sign">
-        {% unless page.layout == "support" %}{% include signature.html %}{% endunless %}
+        {% unless page.layout == "support" or page.signed %}{% include signature.html %}{% endunless %}
         <p class="label">{% include heart.html label="A heart, half Swiss flag and half Spanish flag" %}<span>G. Dato · Made in Switzerland</span></p>
       </div>
       <div class="foot__contact">
