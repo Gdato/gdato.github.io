@@ -1,0 +1,73 @@
+---
+layout: default
+---
+{%- comment -%}
+  One support (donation) page. Front matter of the page: app (an id from _data/apps.yml) and lang (en/de/fr/it).
+  Texts: _data/i18n.yml. Payment links: _data/payments.yml (links only: no number or address is ever printed).
+{%- endcomment -%}
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign pay = site.data.payments -%}
+{%- assign app = site.data.apps | where: "id", page.app | first -%}
+{%- assign base = app.url | append: "support/" -%}
+
+<nav class="langs" aria-label="{{ t.lang_label }}">
+  {%- for l in site.data.i18n %}
+  {%- assign code = l[0] -%}
+  {%- if code == "en" %}{% assign href = base %}{% else %}{% assign href = base | append: code | append: "/" %}{% endif %}
+  <a href="{{ href | relative_url }}" lang="{{ code }}" hreflang="{{ code }}"{% if code == lang %} aria-current="page"{% endif %}>{{ l[1].name }}</a>
+  {%- endfor %}
+</nav>
+
+<section class="hero hero--support">
+  {% include icons/{{ app.id }}.svg %}
+  <div>
+    <p class="label label--accent">{{ t.kicker }}</p>
+    <h1>{{ t.title | replace: "%app%", app.name }}</h1>
+    <p class="hero__lead">{{ app.helps[lang] }}</p>
+    <p>{{ t.thanks }}</p>
+  </div>
+</section>
+
+<h2 class="section-title">{{ t.ways }}</h2>
+
+<div class="pays">
+{%- for m in pay.methods %}
+{%- assign tag = m.id | append: "_tag" %}{%- assign intro = m.id | append: "_intro" %}{%- assign button = m.id | append: "_button" %}
+<section class="window pay" aria-labelledby="{{ m.id }}-title">
+  <div class="window__bar" aria-hidden="true"><span class="window__box"></span><span class="window__name">{{ t[tag] }}</span></div>
+  <div class="window__body">
+    <h3 id="{{ m.id }}-title">{{ m.name }}</h3>
+    <p>{{ t[intro] | replace: "%app%", app.name }}</p>
+    {%- if m.id == "googlepay" %}<p class="note">{{ app.play_note[lang] }}</p>{% endif %}
+    {%- if m.link != "" %}
+    <p class="pay__action"><a class="btn btn--accent" rel="noopener noreferrer" href="{{ m.link }}">{{ t[button] }} <span aria-hidden="true">↗</span></a></p>
+    {%- else %}
+    <p class="pay__action"><span class="tag tag--soon">{{ t.link_soon }}</span></p>
+    {%- endif %}
+  </div>
+</section>
+{% endfor %}
+</div>
+
+<section class="other" aria-labelledby="other-title">
+  <h2 class="section-title" id="other-title">{{ t.other_title }}</h2>
+  <p>{{ t.other_intro }}</p>
+  <ul class="ticks">
+    <li>{{ t.other_tell | replace: "%app%", app.name }}</li>
+    <li>{{ t.other_ideas }}</li>
+    <li>{{ t.other_enjoy }}</li>
+  </ul>
+</section>
+
+<section class="work" aria-labelledby="work-title">
+  <h2 class="section-title" id="work-title">{{ t.work_title }}</h2>
+  <p>{{ t.work_intro }}</p>
+  {% include app-cards.html lang=lang exclude=app.id soon=t.soon compact=true %}
+</section>
+
+<section class="signoff">
+  <p>{{ t.signoff }}</p>
+  <div class="signoff__sign">{% include signature.html %}{% include heart.html label=t.heart_label %}</div>
+  <p><a href="{{ app.url | relative_url }}">← {{ t.back | replace: "%app%", app.name }}</a></p>
+</section>

@@ -1,0 +1,2 @@
+{%- comment -%} The pixel heart: half Swiss flag, half Spanish flag. Parameter: label (when given, the heart is announced; otherwise it is decoration). {%- endcomment -%}
+<svg class="heart" viewBox="0 0 18 16" width="27" height="24" shape-rendering="crispEdges"{% if include.label %} role="img" aria-label="{{ include.label | escape }}"{% else %} aria-hidden="true" focusable="false"{% endif %}>{% if include.label %}<title>{{ include.label | escape }}</title>{% endif %}{% include heart-pixels.html %}</svg>

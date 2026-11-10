@@ -1,0 +1,8 @@
+{%- comment -%} Status badge of one app. Parameters: app (an entry of _data/apps.yml), soon (label for unreleased apps). {%- endcomment -%}
+{%- if include.app.status == 'soon' -%}
+<span class="tag tag--soon">{{ include.soon | default: "Coming soon" }}</span>
+{%- elsif include.app.play_url and include.app.play_url != "" -%}
+<span class="tag tag--live">On Google Play</span>
+{%- elsif include.app.play == "preparing" -%}
+<span class="tag">In preparation</span>
+{%- endif -%}

@@ -1,0 +1,46 @@
+---
+title: G. Dato
+window: false
+permalink: /
+---
+
+<section class="hero hero--home">
+  <div class="hero__text">
+    <p class="label label--accent">Grüezi, I'm G. Dato</p>
+    <h1>I make small apps that do <span class="underlined">one job well</span> and then leave you alone.</h1>
+    <p class="hero__lead">No ads, no tracking, no account. I build them in the evenings, here in Switzerland, for things I wanted to exist: a remote for my own devices, a proper slate for Jass night, a calendar for the bin bags.</p>
+    <ul class="actions">
+      <li><a class="btn btn--accent" href="#work">See the apps</a></li>
+      <li><a class="btn" href="#why">Why no ads?</a></li>
+    </ul>
+  </div>
+  <figure class="window hero__desk">
+    <div class="window__bar" aria-hidden="true"><span class="window__box"></span><span class="window__name">My desk</span></div>
+    {% include desk.svg %}
+  </figure>
+</section>
+
+<section aria-label="What I promise">
+  <ul class="principles">
+    <li><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="7" width="24" height="18"/><path d="M10 20l3-8 3 8M11 17.500h4M19 12v8h2.500a4 4 0 0 0 0-8z"/><path class="strike" d="M3 29L29 3"/></svg><strong>No ads</strong><span>Not one, in any app.</span></li>
+    <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16c4-7 9-10 13-10s9 3 13 10c-4 7-9 10-13 10S7 23 3 16z"/><circle cx="16" cy="16" r="4"/><path class="strike" d="M3 29L29 3"/></svg><strong>No tracking</strong><span>No analytics, no advertising ID.</span></li>
+    <li><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="11" r="5"/><path d="M6 27c1-7 5-10 10-10s9 3 10 10"/><path class="strike" d="M3 29L29 3"/></svg><strong>No account</strong><span>Install it and use it. That is all.</span></li>
+    <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 26l9-14 5 7 4-6 10 13z"/><path d="M8.500 16l2.500-1 2 2"/></svg><strong>Made in Switzerland</strong><span>By one person, with care.</span></li>
+  </ul>
+</section>
+
+<section aria-labelledby="work">
+  <h2 class="section-title" id="work">My apps</h2>
+  {% include app-cards.html lang="en" %}
+</section>
+
+<section class="why" aria-labelledby="why">
+  <div class="why__note">
+    <p class="label label--accent">A short note</p>
+    <h2 id="why">Why no ads?</h2>
+    <p>Because I don't like them either. Most free apps are paid for with your attention or with your data. I would rather make something small and useful, and be able to look you in the eye.</p>
+    <p>So there is no advertising code in my apps, no analytics and no account. I run no server, so nothing about you can reach me.</p>
+    <p>If an app is useful to you, you can support it with a small donation. Nobody has to: every franc is appreciated, and none is expected.</p>
+    <div class="why__sign">{% include signature.html %}{% include heart.html %}</div>
+  </div>
+</section>

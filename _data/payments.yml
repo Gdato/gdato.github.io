@@ -1,0 +1,16 @@
+# Payment links shown on every support page. No phone number or email is ever printed:
+# each method is only a button that opens the provider's own payment page.
+# Leave a link empty ("") and that method shows "link coming soon" instead of a button.
+methods:
+  - id: twint
+    name: TWINT
+    # TODO: your personal TWINT payment link (TWINT app → create link / QR for your number)
+    link: ""
+  - id: paypal
+    name: PayPal
+    # TODO: your PayPal.Me link, e.g. https://paypal.me/yourname (shows your name, not your email)
+    link: ""
+  - id: googlepay
+    name: Google Pay
+    # TODO: a payment link that accepts Google Pay (e.g. a Stripe Payment Link)
+    link: ""

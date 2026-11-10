@@ -1,0 +1,109 @@
+# The apps shown as cards on the home page, on their own pages and under "Check my work" on the support pages.
+# status:      "live" (has an app page) or "soon" (card only, no link).
+# play_url:    the Google Play link. A link shows the badge "On Google Play" and a "Get it on Google Play" button.
+# play:        "preparing" shows the badge "In preparation" while play_url is still empty.
+# heading:     the big title of the app page, when it should differ from the name.
+# kind:        one short line under the name on the app page.
+# bullets:     2-3 short points for the card on the home page.
+# features:    the feature list of the app page.
+# screenshots: optional list of images for the app page, e.g.
+#                - src: /assets/shots/jasstafel-1.png
+#                  alt: "The slate during a Schieber"
+#              Leave it out and the page shows no screenshot section.
+- id: universal-remote
+  name: "Universal Remote"
+  full_name: "Universal Remote: Control & Diagnostics"
+  url: /universal-remote/
+  status: live
+  support: true
+  play_url: ""
+  heading: "Universal Remote: Control & Diagnostics"
+  kind: "Android · Smart home & diagnostics"
+  bullets:
+    - "TVs, speakers, lights, plugs, blinds, robot vacuums and more"
+    - "Talks to your devices directly, on your own network"
+    - "Read-only car diagnostics included"
+  features:
+    - title: "One remote for many things."
+      text: "TVs and speakers, lights and plugs, TV lifts, beds and desks, blinds and gates, robot vacuums and mowers."
+    - title: "Local, always."
+      text: "The app talks to your devices directly, on your Wi-Fi or over Bluetooth. I have no server, so nothing about you can reach me."
+    - title: "Diagnostics included."
+      text: "Scan what is around you, and read values and fault codes from cars and machines (OBD-II, J1939). Read-only: it never clears codes or changes settings."
+    - title: "No hidden processes."
+      text: "No background service and nothing that starts with the phone. When you leave the app, its scans and connections pause."
+    - title: "Honest labels."
+      text: "Each device says whether I tested it on my own hardware or whether it is still Beta."
+    - title: "Free to try, Pro once."
+      text: "Scanning, diagnostics, guides and two saved devices are free. Pro is a one-time purchase, not a subscription."
+  tagline:
+    en: "Control and check your own Bluetooth and Wi-Fi devices, locally. No tracking, no ads, no hidden processes."
+    de: "Eigene Bluetooth- und WLAN-Geräte lokal steuern und prüfen. Kein Tracking, keine Werbung, keine versteckten Prozesse."
+    fr: "Pilotez et vérifiez vos propres appareils Bluetooth et Wi-Fi, en local. Ni pistage, ni publicité, ni processus cachés."
+    it: "Controlla e verifica i tuoi dispositivi Bluetooth e Wi-Fi, in locale. Niente tracciamento, niente pubblicità, niente processi nascosti."
+  helps:
+    en: "Universal Remote has no ads and no tracking. A donation helps to buy test devices and pays for the time it takes to add support for more of them."
+    de: "Universal Remote hat keine Werbung und kein Tracking. Eine Spende hilft, Testgeräte zu kaufen, und bezahlt die Zeit, die es braucht, um weitere Geräte zu unterstützen."
+    fr: "Universal Remote n'a ni publicité ni pistage. Un don aide à acheter des appareils de test et finance le temps qu'il faut pour en prendre d'autres en charge."
+    it: "Universal Remote non ha pubblicità né tracciamento. Una donazione aiuta a comprare dispositivi di prova e ripaga il tempo che serve per supportarne altri."
+  play_note:
+    en: "In the Google Play version, the optional Pro unlock is paid through Google Play, which accepts Google Pay."
+    de: "In der Google-Play-Version wird die optionale Pro-Freischaltung über Google Play bezahlt, und Google Play akzeptiert Google Pay."
+    fr: "Dans la version Google Play, le déblocage Pro facultatif se paie via Google Play, qui accepte Google Pay."
+    it: "Nella versione Google Play, lo sblocco Pro facoltativo si paga tramite Google Play, che accetta Google Pay."
+- id: jasstafel
+  name: "Jass Tafel"
+  full_name: "Jass Tafel – Schieber Zähler"
+  url: /jasstafel/
+  status: live
+  support: true
+  play_url: ""
+  play: preparing
+  kind: "Android · Card game scorer"
+  bullets:
+    - "Chalk strokes of 100, 50 and 20, like on the real slate"
+    - "Your house rules, saved for every table"
+    - "Big buttons and three text sizes"
+  features:
+    - title: "The slate, done properly."
+      text: "Strokes of 100, 50 and 20 the way a table writes them, or plain numbers with one tap."
+    - title: "Three games, one app."
+      text: "Schieber, Differenzler and Coiffeur."
+    - title: "Your house rules."
+      text: "Target, multipliers, Weis, Stöck and match bonus, saved as presets for every table you play at."
+    - title: "Swiss or French cards."
+      text: "In English, German, Swiss German, French, Italian and Spanish."
+    - title: "Made for the whole table."
+      text: "Three text sizes, big buttons, high contrast."
+    - title: "Private."
+      text: "No ads, no analytics, no account. Your games stay on your phone."
+  tagline:
+    en: "Jass scorer for Schieber, Differenzler and Coiffeur: slate, house rules, no ads."
+    de: "Jass-Zähler für Schieber, Differenzler, Coiffeur: Tafel, Hausregeln, werbefrei."
+    fr: "Compteur de Jass pour Schieber, Differenzler et Coiffeur : ardoise, règles maison, sans publicité."
+    it: "Segnapunti di Jass per Schieber, Differenzler e Coiffeur: lavagna, regole di casa, senza pubblicità."
+  helps:
+    en: "Jass Tafel has no ads, and every feature is free for everyone. A donation helps to keep it that way and pays for the evenings that go into new game variants, translations and testing on real phones."
+    de: "Jass Tafel hat keine Werbung, und alle Funktionen sind für alle gratis. Eine Spende hilft, dass das so bleibt, und bezahlt die Abende, die in neue Jass-Varianten, Übersetzungen und Tests auf echten Handys fliessen."
+    fr: "Jass Tafel n'a pas de publicité, et toutes les fonctions sont gratuites pour tout le monde. Un don aide à ce que cela reste ainsi et finance les soirées passées sur de nouvelles variantes, les traductions et les tests sur de vrais téléphones."
+    it: "Jass Tafel non ha pubblicità e tutte le funzioni sono gratuite per tutti. Una donazione aiuta a mantenerlo così e ripaga le serate dedicate a nuove varianti, traduzioni e prove su telefoni veri."
+  play_note:
+    en: "The Google Play edition of Jass Tafel has a tip jar inside the app (Settings → Support). Tips are paid through Google Play, which accepts Google Pay."
+    de: "Die Google-Play-Ausgabe von Jass Tafel hat ein Trinkgeldglas in der App. Trinkgelder werden über Google Play bezahlt, und Google Play akzeptiert Google Pay."
+    fr: "L'édition Google Play de Jass Tafel a un pot à pourboires dans l'app. Les pourboires se paient via Google Play, qui accepte Google Pay."
+    it: "L'edizione Google Play di Jass Tafel ha un barattolo delle mance nell'app. Le mance si pagano tramite Google Play, che accetta Google Pay."
+- id: abfallkalender
+  name: "Abfallkalender"
+  full_name: "Abfallkalender"
+  status: soon
+  support: false
+  kind: "Android · Waste calendar"
+  bullets:
+    - "Collection dates straight from your Gemeinde"
+    - "No account and no tracking"
+    - "No ads, like everything here"
+  tagline:
+    en: "Ad-free Swiss waste collection calendar. No account, no tracking: the phone reads the dates straight from your Gemeinde."
+    de: "Werbefreier Schweizer Abfallkalender. Kein Konto, kein Tracking: Das Handy liest die Daten direkt bei deiner Gemeinde."
+    fr: "Calendrier suisse des déchets, sans publicité. Ni compte, ni pistage : le téléphone lit les dates directement auprès de votre commune."
+    it: "Calendario svizzero dei rifiuti, senza pubblicità. Niente account, niente tracciamento: il telefono legge le date direttamente dal tuo Comune."

@@ -1,0 +1,57 @@
+{%- comment -%}
+  App cards. Parameters: lang (en/de/fr/it), exclude (an app id to leave out), soon (label for unreleased apps),
+  compact (true: small cards with the translated tagline only, used on the support pages).
+{%- endcomment -%}
+{%- assign card_lang = include.lang | default: "en" -%}
+{%- if include.compact %}
+<ul class="cards cards--compact">
+{%- for a in site.data.apps -%}
+{%- if a.id == include.exclude -%}{%- continue -%}{%- endif %}
+  <li class="card{% if a.status == 'soon' %} card--soon{% endif %}">
+    {% include icons/{{ a.id }}.svg %}
+    <div class="card__body">
+      <h3 class="card__title">
+        {%- if a.status == 'live' -%}
+        <a href="{{ a.url | relative_url }}">{{ a.name }}</a>
+        {%- else -%}
+        {{ a.name }} <span class="tag tag--soon">{{ include.soon | default: "Coming soon" }}</span>
+        {%- endif -%}
+      </h3>
+      <p>{{ a.tagline[card_lang] | default: a.tagline.en }}</p>
+    </div>
+  </li>
+{%- endfor %}
+</ul>
+{%- else %}
+<ul class="cards">
+{%- for a in site.data.apps -%}
+{%- if a.id == include.exclude -%}{%- continue -%}{%- endif %}
+  <li class="app-card window{% if a.status == 'soon' %} app-card--soon{% endif %}">
+    <div class="window__bar" aria-hidden="true"><span class="window__box"></span><span class="window__name">{{ a.name }}</span></div>
+    <div class="app-card__screen">{% include mockups/{{ a.id }}.svg %}</div>
+    <div class="app-card__body">
+      <div class="app-card__head">
+        {% include icons/{{ a.id }}.svg %}
+        <div>
+          <h3 class="app-card__title">
+            {%- if a.status == 'live' -%}<a href="{{ a.url | relative_url }}">{{ a.name }}</a>{%- else -%}{{ a.name }}{%- endif -%}
+          </h3>
+          {% include badge.html app=a soon=include.soon %}
+        </div>
+      </div>
+      <p>{{ a.tagline[card_lang] | default: a.tagline.en }}</p>
+      {%- if a.bullets %}
+      <ul class="ticks">
+        {%- for b in a.bullets %}
+        <li>{{ b }}</li>
+        {%- endfor %}
+      </ul>
+      {%- endif %}
+      {%- if a.status == 'live' %}
+      <p class="app-card__more" aria-hidden="true">Open the page <span>→</span></p>
+      {%- endif %}
+    </div>
+  </li>
+{%- endfor %}
+</ul>
+{%- endif %}

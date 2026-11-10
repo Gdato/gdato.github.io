@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- comment -%} The app this page belongs to: named in the front matter, or found from the address (the policy pages). {%- endcomment -%}
+  {%- assign app = nil -%}
+  {%- for a in site.data.apps -%}
+    {%- if a.id == page.app %}{% assign app = a %}{% elsif a.url and page.url contains a.url %}{% assign app = a %}{% endif -%}
+  {%- endfor -%}
+  {%- if page.title and page.title != site.title %}{% assign full_title = page.title | append: " · " | append: site.title %}{% else %}{% assign full_title = site.title | append: " · Small apps from Switzerland" %}{% endif -%}
+  {%- assign page_lang = page.lang | default: "en" -%}
+  {%- assign description = page.description | default: app.tagline[page_lang] | default: site.description -%}
+  {%- if app %}{% assign image = "/assets/og-" | append: app.id | append: ".png" %}{% else %}{% assign image = "/assets/og.png" %}{% endif %}
+  <title>{{ full_title | escape }}</title>
+  <meta name="description" content="{{ description | escape }}">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f2eee4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131518" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+  <meta property="og:description" content="{{ description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ image | absolute_url }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="bar{% if page.window == false %} bar--wide{% endif %}">
+    <nav class="bar__inner" aria-label="Site">
+      <a class="bar__brand" href="{{ '/' | relative_url }}">{% include heart.html %}<span>G. Dato</span></a>
+      <a class="bar__link" href="{{ '/#work' | relative_url }}">Apps</a>
+      <a class="bar__link" href="{{ '/#why' | relative_url }}">Why no ads</a>
+      <a class="bar__link" href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main" class="wrap{% if page.window == false %} wrap--wide{% endif %}">
+    {%- if page.window == false %}
+    {{ content }}
+    {%- else %}
+    <article class="window">
+      <div class="window__bar" aria-hidden="true"><span class="window__box"></span><span class="window__name">{{ page.window_title | default: page.title | escape }}</span></div>
+      <div class="window__body prose">
+        {{ content }}
+      </div>
+    </article>
+    {%- endif %}
+  </main>
+
+  <footer class="foot wrap{% if page.window == false %} wrap--wide{% endif %}" id="contact">
+    <div class="foot__grid">
+      <div class="foot__sign">
+        {% unless page.layout == "support" %}{% include signature.html %}{% endunless %}
+        <p class="label">{% include heart.html label="A heart, half Swiss flag and half Spanish flag" %}<span>G. Dato · Made in Switzerland</span></p>
+      </div>
+      <div class="foot__contact">
+        <p class="label">Say hello</p>
+        <p>Questions, ideas, a bug you found? I read every message.<br><a href="mailto:guillermodato@gmail.com">guillermodato@gmail.com</a></p>
+      </div>
+    </div>
+    <p class="foot__small">This site has no trackers, no analytics, no cookies and no scripts. It is a few plain pages, like in the old days.</p>
+  </footer>
+</body>
+</html>

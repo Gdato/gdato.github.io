@@ -1,7 +1,16 @@
-title: Gdato
-description: Apps by Gdato
-theme: jekyll-theme-primer
+title: G. Dato
+description: Small Android apps by G. Dato, made in Switzerland. No ads, no tracking.
+lang: en
+url: "https://gdato.github.io"
 plugins:
   - jekyll-relative-links
 relative_links:
   enabled: true
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+exclude:
+  - README.md
+  - NOTICE.md

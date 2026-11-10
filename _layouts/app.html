@@ -1,0 +1,87 @@
+---
+layout: default
+---
+{%- comment -%}
+  One app page. Front matter of the page: app (an id from _data/apps.yml). Everything shown comes from that entry;
+  whatever the page itself contains is printed under the features as "notes".
+{%- endcomment -%}
+{%- assign app = site.data.apps | where: "id", page.app | first -%}
+{%- assign has_play = false -%}
+{%- if app.play_url and app.play_url != "" %}{% assign has_play = true %}{% endif -%}
+
+<section class="app-hero">
+  <div class="app-hero__text">
+    <div class="app-hero__id">
+      {% include icons/{{ app.id }}.svg %}
+      <div>
+        <p class="label label--accent">{{ app.kind }}</p>
+        {% include badge.html app=app %}
+      </div>
+    </div>
+    <h1>{{ app.heading | default: app.name }}</h1>
+    <p class="hero__lead">{{ app.tagline.en }}</p>
+    <ul class="actions">
+      {%- if has_play %}
+      <li><a class="btn btn--accent" rel="noopener noreferrer" href="{{ app.play_url }}">Get it on Google Play <span aria-hidden="true">↗</span></a></li>
+      {%- endif %}
+      <li><a class="btn" href="#features">What it does</a></li>
+      {%- if app.support %}
+      <li><a class="btn{% unless has_play %} btn--accent{% endunless %}" href="{{ app.url | append: 'support/' | relative_url }}">Support the app</a></li>
+      {%- endif %}
+    </ul>
+    {%- if app.play == "preparing" and has_play == false %}
+    <p class="note">The release on Google Play is in preparation.</p>
+    {%- endif %}
+  </div>
+  <figure class="window app-hero__shot">
+    <div class="window__bar" aria-hidden="true"><span class="window__box"></span><span class="window__name">{{ app.name }}</span></div>
+    {% include mockups/{{ app.id }}.svg %}
+    <figcaption class="note">A drawing, not a screenshot. The real thing looks better.</figcaption>
+  </figure>
+</section>
+
+<section aria-labelledby="features-title" id="features">
+  <h2 class="section-title" id="features-title">What it does</h2>
+  <ol class="features">
+    {%- for f in app.features %}
+    <li class="feature">
+      <span class="feature__no" aria-hidden="true">{{ forloop.index | prepend: "0" }}</span>
+      <h3>{{ f.title }}</h3>
+      <p>{{ f.text }}</p>
+    </li>
+    {%- endfor %}
+  </ol>
+</section>
+
+{%- if app.screenshots %}
+<section aria-labelledby="shots-title">
+  <h2 class="section-title" id="shots-title">Screenshots</h2>
+  <ul class="shots">
+    {%- for s in app.screenshots %}
+    <li><img src="{{ s.src | relative_url }}" alt="{{ s.alt | escape }}" loading="lazy"></li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}
+
+{%- assign notes = content | strip -%}
+{%- if notes != "" %}
+<section class="prose app-notes">
+  {{ content }}
+</section>
+{%- endif %}
+
+<section aria-labelledby="papers-title">
+  <h2 class="section-title" id="papers-title">The fine print, in plain words</h2>
+  <ul class="papers">
+    <li><a class="paper" href="{{ app.url | append: 'privacy' | relative_url }}"><span class="label">Read</span><strong>Privacy policy</strong><span>What the app stores, and what it never collects.</span></a></li>
+    {%- if page.terms %}
+    <li><a class="paper" href="{{ app.url | append: 'terms' | relative_url }}"><span class="label">Read</span><strong>Terms of use</strong><span>The promises I make, and how to use the app safely.</span></a></li>
+    {%- endif %}
+    {%- if app.support %}
+    <li><a class="paper" href="{{ app.url | append: 'support/' | relative_url }}"><span class="label">If you like it</span><strong>Support the app</strong><span>A donation keeps it free of ads. Never expected.</span></a></li>
+    {%- endif %}
+  </ul>
+</section>
+
+<p class="back"><a href="{{ '/#work' | relative_url }}">← All my apps</a></p>
