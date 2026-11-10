@@ -35,7 +35,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <header class="bar{% if page.window == false %} bar--wide{% endif %}">
     <nav class="bar__inner" aria-label="Site">
-      <a class="bar__brand" href="{{ '/' | relative_url }}">{% include heart.html %}<span>G. Dato</span></a>
+      <a class="bar__brand" href="{{ '/' | relative_url }}">{% include heart.html %}<span>G.&#x202F;Dato</span></a>
       <a class="bar__link" href="{{ '/#work' | relative_url }}">Apps</a>
       <a class="bar__link" href="{{ '/#why' | relative_url }}">Why no ads</a>
       <a class="bar__link" href="#contact">Contact</a>
@@ -59,7 +59,7 @@
     <div class="foot__grid">
       <div class="foot__sign">
         {% unless page.layout == "support" or page.signed %}{% include signature.html %}{% endunless %}
-        <p class="label">{% include heart.html label="A heart, half Swiss flag and half Spanish flag" %}<span>G. Dato · Made in Switzerland</span></p>
+        <p class="label">{% include heart.html label="A heart, half Swiss flag and half Spanish flag" %}<span>G.&#x202F;Dato · Made in Switzerland</span></p>
       </div>
       <div class="foot__contact">
         <p class="label">Say hello</p>
