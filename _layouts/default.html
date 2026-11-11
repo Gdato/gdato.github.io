@@ -39,6 +39,7 @@
       <a class="bar__link" href="{{ '/#work' | relative_url }}">Apps</a>
       <a class="bar__link" href="{{ '/#why' | relative_url }}">Why no ads</a>
       <a class="bar__link" href="#contact">Contact</a>
+      {%- if page.url == "/" %}<span class="egg egg--map">{% include eggs/map.svg %}</span>{% endif %}
     </nav>
   </header>
 
@@ -57,6 +58,7 @@
 
   <footer class="foot wrap{% if page.window == false %} wrap--wide{% endif %}" id="contact">
     <div class="foot__grid">
+      {%- if page.url == "/" %}<span class="egg egg--book">{% include eggs/book.svg %}</span>{% endif %}
       <div class="foot__sign">
         {% unless page.layout == "support" or page.signed %}{% include signature.html %}{% endunless %}
         <p class="label">{% include heart.html label="A heart, half Swiss flag and half Spanish flag" %}<span>G.&#x202F;Dato · Made in Switzerland</span></p>

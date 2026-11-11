@@ -165,19 +165,54 @@ main > section, main > .cards { margin-bottom: var(--gap); }
   .principles li:nth-child(1) { border-left: 0; padding-left: 0; }
 }
 
-/* App cards on the home page: each one a small window. */
+/* App cards on the home page: each one a small window. Made for up to ten or so apps: one column on a phone, two on a
+   tablet, three on a desk. On a desk the grid has six tracks, so the last row is always filled: two cards share it,
+   and a single card lies down across it (see further below). */
 .cards { list-style: none; margin: 0; padding: 0 4px 0 0; display: grid; gap: 1.75rem; grid-template-columns: 1fr; }
 @media (min-width: 40rem) { .cards { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 58rem) { .cards { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 58rem) {
+  .cards { grid-template-columns: repeat(3, 1fr); }
+  .cards:not(.cards--compact) { grid-template-columns: repeat(6, 1fr); }
+  .cards:not(.cards--compact) > .app-card { grid-column: span 2; }
+  .cards:not(.cards--compact) > .app-card:nth-last-child(2):nth-child(3n+1),
+  .cards:not(.cards--compact) > .app-card:last-child:nth-child(3n+2) { grid-column: span 3; }
+  .cards:not(.cards--compact) > .app-card:nth-last-child(2):nth-child(3n+1) > .app-card__screen,
+  .cards:not(.cards--compact) > .app-card:last-child:nth-child(3n+2) > .app-card__screen { aspect-ratio: 1; }
+}
 .app-card { position: relative; display: flex; flex-direction: column; margin: 0; transition: transform .1s, box-shadow .1s; }
 .app-card:has(a):hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--lift); }
 @media (prefers-reduced-motion: reduce) { .app-card, .app-card:has(a):hover { transform: none; transition: none; } }
-.app-card__screen { display: grid; place-items: end center; height: 27.5rem; padding: 1.5rem 1rem 0; overflow: hidden; border-bottom: 1px solid var(--ink); }
-.app-card__screen--drawing { place-items: center; align-content: center; gap: 1rem; padding-bottom: 1.5rem; }
-/* Cards show the whole screen on a complete monitor, centred in the same picture box as a drawing. */
-.app-card__screen:not(.app-card__screen--drawing) { place-items: center; padding: 1.25rem 1rem 1.75rem; }
-.app-card__screen .crt { width: min(100%, 13rem); }
+.app-card__screen { container-type: inline-size; display: grid; place-items: center; align-content: center; gap: 1rem; aspect-ratio: 3 / 4; max-height: 34rem;
+  padding: 1.25rem 1rem 1.5rem; overflow: hidden; border-bottom: 1px solid var(--ink); }
+/* The phone on its dock and the drawing fill the picture box the same way: the dock is as wide as the drawing. */
+.app-card__screen .mockup { width: min(100%, 22rem); }
 .app-card__screen--drawing .mockup { border: 1px dashed var(--ink); }
+
+/* An old phone standing in its desk dock: beige case, earpiece and camera on top, a dark frame around curved glass with
+   faint scan lines. The dock in front hides the lower part of the phone, so the cards use the upper part of the
+   screenshot (<src>-card.webp). Same materials as the old monitor (.crt) below, beige in both themes. */
+.dock { --case: #dad1b8; --case-hi: #efe8d4; --case-lo: #b3a98d; --tube: #24221e;
+  display: flex; flex-direction: column; align-items: center; width: 100%; padding-bottom: .6rem; }
+.dock__phone { display: block; width: min(72cqi, 17rem); padding: 0 .7rem 1.6rem; background: var(--case); border: 1px solid #15171a; border-radius: 1.6rem 1.6rem .6rem .6rem;
+  box-shadow: inset 2px 2px 0 var(--case-hi), inset -3px -3px 0 var(--case-lo), 6px 6px 0 var(--shadow); }
+.dock__ear { display: flex; align-items: center; justify-content: center; gap: .55rem; height: 2.1rem; }
+.dock__ear::before { content: ""; width: 2.6rem; height: .32rem; background: var(--tube); border-radius: 1rem; box-shadow: 0 1px 0 var(--case-hi); }
+.dock__ear::after { content: ""; width: .42rem; height: .42rem; background: #3a4350; border: 1px solid #15171a; border-radius: 50%; }
+.dock__glass { position: relative; display: block; padding: .4rem; background: linear-gradient(to bottom, #15140f, var(--tube) 30%, #3a3731); border-radius: .8rem;
+  box-shadow: -1px -1px 0 1px var(--case-lo), 1px 1px 0 1px var(--case-hi); }
+.dock__glass img { display: block; width: 100%; height: auto; aspect-ratio: 540 / 740; object-fit: cover; object-position: top; border-radius: .4rem; background: #f7f4ec; }
+.dock__glass::after { content: ""; position: absolute; inset: .4rem; border-radius: .4rem; pointer-events: none;
+  background: radial-gradient(120% 40% at 10% 0, rgba(255, 255, 255, .13), transparent 70%), repeating-linear-gradient(to bottom, rgba(0, 0, 0, .05) 0 1px, transparent 1px 3px);
+  box-shadow: inset 0 0 1rem rgba(0, 0, 0, .3), inset 0 0 2px rgba(0, 0, 0, .6); }
+.dock__stand { position: relative; display: block; width: min(96cqi, 24rem); height: 3.1rem; margin-top: -3.4rem;
+  background: repeating-linear-gradient(to right, var(--case-lo) 0 2px, transparent 2px 5px) 1.1rem calc(100% - .8rem) / 2.4rem .6rem no-repeat, var(--case);
+  border: 1px solid #15171a; border-radius: 1rem 1rem .35rem .35rem;
+  box-shadow: inset 2px 2px 0 var(--case-hi), inset -3px -3px 0 var(--case-lo), 6px 6px 0 var(--shadow); }
+.dock__stand::before { content: ""; position: absolute; left: 1.1rem; right: 1.1rem; top: .45rem; height: .3rem; background: var(--case-lo); border-radius: 1rem; }
+.dock__stand::after { content: ""; position: absolute; top: 100%; left: 7%; right: 7%; height: .55rem; background: var(--case-lo); border: 1px solid #15171a; border-top: 0;
+  border-radius: 0 0 .3rem .3rem; box-shadow: 6px 6px 0 var(--shadow); }
+.dock__led { position: absolute; right: 1.2rem; bottom: .85rem; width: .42rem; height: .42rem; background: #46b05c; border: 1px solid #15171a; border-radius: 50%; }
+@media (prefers-color-scheme: dark) { .dock { --case: #c2b9a0; --case-hi: #d8cfb8; --case-lo: #978d73; } }
 .mockup { display: block; width: 100%; height: auto; color: var(--ink); }
 
 /* Real screenshots are shown on a drawn old monitor, on dotted paper: a beige case, a dark tube frame, curved glass
@@ -231,12 +266,20 @@ main > section, main > .cards { margin-bottom: var(--gap); }
 .app-card--soon { box-shadow: none; border-style: dashed; }
 .app-card--soon .window__bar, .app-card--soon .app-card__screen { border-bottom-style: dashed; }
 .app-icon { flex: none; display: block; color: var(--ink); }
-/* Two columns: a third card left alone in its row lies down and takes the whole row. */
+/* A card left alone in the last row lies down and takes the whole row, its picture box as wide as one card. */
 @media (min-width: 40rem) and (max-width: 57.99rem) {
-  .cards:not(.cards--compact) > .app-card:last-child:nth-child(odd) { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; }
+  .cards:not(.cards--compact) > .app-card:last-child:nth-child(odd) { grid-column: 1 / -1; display: grid; grid-template-columns: calc((100% - 1.75rem) / 2) 1fr; grid-template-rows: auto 1fr; }
   .cards:not(.cards--compact) > .app-card:last-child:nth-child(odd) > .window__bar { grid-column: 1 / -1; }
-  .cards:not(.cards--compact) > .app-card:last-child:nth-child(odd) > .app-card__screen { height: auto; min-height: 17rem; border-bottom: 0; border-right: 1px solid var(--ink); }
+  .cards:not(.cards--compact) > .app-card:last-child:nth-child(odd) > .app-card__screen { border-bottom: 0; border-right: 1px solid var(--ink); }
   .cards:not(.cards--compact) > .app-card--soon:last-child:nth-child(odd) > .app-card__screen { border-right-style: dashed; }
+  .cards:not(.cards--compact) > .app-card:last-child:nth-child(odd) > .app-card__body { justify-content: center; }
+}
+@media (min-width: 58rem) {
+  .cards:not(.cards--compact) > .app-card:last-child:nth-child(3n+1) { grid-column: 1 / -1; display: grid; grid-template-columns: calc((100% - 3.5rem) / 3) 1fr; grid-template-rows: auto 1fr; }
+  .cards:not(.cards--compact) > .app-card:last-child:nth-child(3n+1) > .window__bar { grid-column: 1 / -1; }
+  .cards:not(.cards--compact) > .app-card:last-child:nth-child(3n+1) > .app-card__screen { border-bottom: 0; border-right: 1px solid var(--ink); }
+  .cards:not(.cards--compact) > .app-card--soon:last-child:nth-child(3n+1) > .app-card__screen { border-right-style: dashed; }
+  .cards:not(.cards--compact) > .app-card:last-child:nth-child(3n+1) > .app-card__body { justify-content: center; padding: 2rem 2.5rem; }
 }
 
 /* Compact cards: "my other apps" on the support pages. */
@@ -327,3 +370,27 @@ main > section, main > .cards { margin-bottom: var(--gap); }
 .foot__sign .label { display: flex; align-items: center; gap: .7rem; margin: 0; }
 .foot__contact p { margin: 0 0 .5rem; overflow-wrap: anywhere; }
 .foot__small { color: var(--ink-2); font-size: 1rem; margin: 0; padding-top: 1.25rem; border-top: 1px dashed var(--ink); }
+
+/* Easter eggs: small pixel things from films I grew up with, left at the edges of boxes on the home page.
+   Decoration only (aria-hidden), with a line from the film on hover. The pixel art is in _includes/eggs;
+   the outline is the ink colour, like the desk drawing. */
+.egg { position: absolute; z-index: 1; display: block; line-height: 0; color: var(--ink); }
+.egg__art { display: block; width: 100%; height: auto; image-rendering: pixelated; transition: transform .15s; }
+.egg:hover .egg__art { transform: translateY(-3px); }
+@media (prefers-reduced-motion: reduce) { .egg__art { transition: none; } .egg:hover .egg__art { transform: none; } }
+/* A ghost sticker on the line under "My apps", at its far end. */
+.section-title { position: relative; }
+.egg--ghost { right: .75rem; bottom: -1.45rem; width: 44px; transform: rotate(9deg); }
+.egg--ghost .egg__art { filter: drop-shadow(2px 2px 0 var(--lift)); }
+/* ...and their car, driving along the same line towards it. */
+.egg--car { right: calc(.75rem + 44px + .6rem); bottom: -2px; width: 86px; }
+/* A treasure map, slipped under the menu bar. */
+.bar__inner { position: relative; }
+.egg--map { z-index: -1; right: 9.5rem; top: calc(100% - 10px); width: 54px; transform: rotate(-9deg); }
+/* A lightsaber, leaning against the note. */
+.egg--saber { left: calc(100% + 1.1rem); bottom: -1px; width: 10px; transform: rotate(-11deg); transform-origin: 50% 100%; }
+/* A rather unpleasant book, standing on the line above the footer. */
+.foot__grid { position: relative; }
+.egg--book { right: 1.25rem; bottom: calc(100% - 1px); width: 34px; transform: rotate(-4deg); transform-origin: 50% 100%; }
+@media (max-width: 49.99rem) { .egg--saber { display: none; } }
+@media (max-width: 33.99rem) { .egg--map { right: 1rem; } }

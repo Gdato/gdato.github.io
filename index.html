@@ -7,9 +7,9 @@ permalink: /
 
 <section class="hero hero--home">
   <div class="hero__text">
-    <p class="label label--accent">Grüezi, I'm G.&#x202F;Dato</p>
+    <p class="label label--accent">Grüezi! I'm G.&#x202F;Dato, and I'm a developer!</p>
     <h1>I make small apps that do <span class="underlined">one job well</span> and then leave you alone.</h1>
-    <p class="hero__lead">No ads, no tracking, no account. I build them in the evenings, here in Switzerland, for things I wanted to exist: a remote for my own devices, a proper slate for Jass night, a calendar for the bin bags.</p>
+    <p class="hero__lead">No ads, no tracking, no account. Made here in Switzerland, for things I wanted to exist: a remote for my own devices, a proper slate for Jass night, a calendar for the bin bags.</p>
     <ul class="actions">
       <li><a class="btn btn--accent" href="#work">See the apps</a></li>
       <li><a class="btn" href="#why">Why no ads?</a></li>
@@ -31,7 +31,7 @@ permalink: /
 </section>
 
 <section aria-labelledby="work">
-  <h2 class="section-title" id="work">My apps</h2>
+  <h2 class="section-title" id="work">My apps<span class="egg egg--car">{% include eggs/car.svg %}</span><span class="egg egg--ghost">{% include eggs/ghost.svg %}</span></h2>
   {% include app-cards.html lang="en" %}
 </section>
 
@@ -43,5 +43,6 @@ permalink: /
     <p>So there is no advertising code in my apps, no analytics and no account. I run no server, so nothing about you can reach me.</p>
     <p>If an app is useful to you, you can support it with a small donation. Nobody has to: every franc is appreciated, and none is expected.</p>
     <div class="why__sign">{% include signature.html %}{% include heart.html %}</div>
+    <span class="egg egg--saber">{% include eggs/saber.svg %}</span>
   </div>
 </section>

@@ -1,0 +1,19 @@
+{%- comment -%}
+  The home page cards: a real screenshot on a drawn old phone that stands in its desk dock. Parameter: shot (an entry
+  with src, alt and optionally dark, see _data/apps.yml). Shows <src>-card.webp, the upper part of the screen; the dock
+  hides the rest. The phone and the dock are CSS (.dock in assets/style.css) and grow with the card.
+{%- endcomment -%}
+{%- assign s = include.shot -%}
+{%- assign d = site.data.shots -%}
+<span class="dock">
+  <span class="dock__phone">
+    <span class="dock__ear" aria-hidden="true"></span>
+    <span class="dock__glass">
+      <picture>
+        {%- if s.dark %}<source media="(prefers-color-scheme: dark)" srcset="{{ s.dark | append: '-card.webp' | relative_url }}">{% endif %}
+        <img src="{{ s.src | append: '-card.webp' | relative_url }}" width="{{ d.width }}" height="{{ d.card_height }}" alt="{{ s.alt | escape }}" loading="lazy" decoding="async">
+      </picture>
+    </span>
+  </span>
+  <span class="dock__stand" aria-hidden="true"><span class="dock__led"></span></span>
+</span>
