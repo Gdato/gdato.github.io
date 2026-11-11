@@ -37,7 +37,7 @@ permalink: /
 </section>
 
 <section aria-labelledby="work">
-  <h2 class="section-title" id="work">My apps<span class="egg egg--car" tabindex="-1" data-say="Ecto-1, siren on.">{% include eggs/car.svg %}</span><span class="egg egg--ghost" tabindex="-1" data-say="Who you gonna call?">{% include eggs/ghost.svg %}</span></h2>
+  <h2 class="section-title" id="work">My apps<input class="say-cb" id="say-car" type="checkbox" hidden><label class="egg egg--car" for="say-car" data-say="Ecto-1, siren on.">{% include eggs/car.svg %}</label><input class="say-cb" id="say-ghost" type="checkbox" hidden><label class="egg egg--ghost" for="say-ghost" data-say="Who you gonna call?">{% include eggs/ghost.svg %}</label></h2>
   {% include app-cards.html lang="en" %}
 </section>
 
@@ -49,7 +49,7 @@ permalink: /
     <p>So there is no advertising code in my apps, no analytics and no account. I run no server, so nothing about you can reach me.</p>
     <p>If an app is useful to you, you can support it with a small donation. Nobody has to: every franc is appreciated, and none is expected.</p>
     <div class="why__sign">{% include signature.html %}{% include heart.html %}</div>
-    <span class="egg egg--saber">{% include eggs/saber.svg %}</span>
-    <span class="egg egg--hang-m" tabindex="-1" data-say="Hanging around since 1991."><span class="hang__swing">{% include eggs/hang.svg %}</span></span>
+    <input class="say-cb" id="say-saber" type="checkbox" hidden><label class="egg egg--saber" for="say-saber" data-say="An elegant weapon, for a more civilised age.">{% include eggs/saber.svg %}</label>
+    <input class="say-cb" id="say-hang-m" type="checkbox" hidden><label class="egg egg--hang-m" for="say-hang-m" data-say="Hanging around since 1991."><span class="hang__swing">{% include eggs/hang.svg %}</span></label>
   </div>
 </section>

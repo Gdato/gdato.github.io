@@ -39,7 +39,7 @@
       <a class="bar__link" href="{{ '/#work' | relative_url }}">Apps</a>
       <a class="bar__link" href="{{ '/#why' | relative_url }}">Why no ads</a>
       <a class="bar__link" href="#contact">Contact</a>
-      {%- if page.url == "/" %}<span class="egg egg--map" tabindex="-1" data-say="Goonies never say die.">{% include eggs/map.svg %}</span><span class="egg egg--hang"><span class="hang__swing">{% include eggs/hang.svg %}</span></span>{% endif %}
+      {%- if page.url == "/" %}<input class="say-cb" id="say-map" type="checkbox" hidden><label class="egg egg--map" for="say-map" data-say="Goonies never say die.">{% include eggs/map.svg %}</label><input class="say-cb" id="say-hang" type="checkbox" hidden><label class="egg egg--hang" for="say-hang" data-say="Hanging around since 1991."><span class="hang__swing">{% include eggs/hang.svg %}</span></label>{% endif %}
     </nav>
   </header>
 
@@ -58,7 +58,7 @@
 
   <footer class="foot wrap{% if page.window == false %} wrap--wide{% endif %}" id="contact">
     <div class="foot__grid">
-      {%- if page.url == "/" %}<span class="egg egg--book" tabindex="-1" data-say="Klaatu barada... nikto?">{% include eggs/book.svg %}</span>{% include wallcrack.html %}{% endif %}
+      {%- if page.url == "/" %}<input class="say-cb" id="say-book" type="checkbox" hidden><label class="egg egg--book" for="say-book" data-say="Klaatu barada... nikto?">{% include eggs/book.svg %}</label>{% include wallcrack.html %}{% endif %}
       <div class="foot__sign">
         {% unless page.layout == "support" or page.signed %}{% include signature.html %}{% endunless %}
         <p class="label">{% include heart.html label="A heart, half Swiss flag and half Spanish flag" %}<span>G.&#x202F;Dato · Made in Switzerland</span></p>

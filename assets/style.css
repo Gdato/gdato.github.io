@@ -420,74 +420,77 @@ main > section, main > .cards { margin-bottom: var(--gap); }
 /* The hover box stays still and is larger than him, so the swing doesn't carry him out from under the pointer
    (which would end the hover and start the swing over). Only .hang__swing moves. */
 .egg--hang { left: calc(35rem - 28px); top: 100%; width: 100px; height: 140px; }
-.hang__swing { display: block; width: 44px; margin-inline: auto; transform-origin: 50% 0; animation: hang-idle 6s ease-in-out infinite; }
 .egg--hang .egg__art, .egg--hang:hover .egg__art { transition: none; transform: none; }
 .hang__legs, .hang__chest { transform-box: fill-box; }
 .hang__legs { transform-origin: 0 0; }
 .hang__chest { transform-origin: 55% 0; }
-/* A pendulum: fastest through the middle, slowing at each end. The legs and the chest trail a little behind. */
-.egg--hang:hover .hang__swing, body:has(.mi:hover) .hang__swing, .egg--hang-m:is(:hover, :focus) .hang__swing { animation: hang-swing 1.9s infinite; }
-.egg--hang:hover .hang__legs, body:has(.mi:hover) .hang__legs, .egg--hang-m:is(:hover, :focus) .hang__legs { animation: hang-trail 1.9s .14s infinite; }
-.egg--hang:hover .hang__chest, body:has(.mi:hover) .hang__chest, .egg--hang-m:is(:hover, :focus) .hang__chest { animation: hang-trail-chest 1.9s .1s infinite; }
-@keyframes hang-idle { 0%, 100% { transform: rotate(-1.2deg); } 50% { transform: rotate(1.2deg); } }
-@keyframes hang-swing {
-  0% { transform: rotate(0); animation-timing-function: cubic-bezier(.33, .66, .66, 1); }
-  25% { transform: rotate(11deg); animation-timing-function: cubic-bezier(.37, 0, .63, 1); }
-  75% { transform: rotate(-11deg); animation-timing-function: cubic-bezier(.33, 0, .66, .33); }
-  100% { transform: rotate(0); }
-}
-@keyframes hang-trail {
-  0% { transform: rotate(0); animation-timing-function: cubic-bezier(.33, .66, .66, 1); }
-  25% { transform: rotate(-9deg); animation-timing-function: cubic-bezier(.37, 0, .63, 1); }
-  75% { transform: rotate(10deg); animation-timing-function: cubic-bezier(.33, 0, .66, .33); }
-  100% { transform: rotate(0); }
-}
-@keyframes hang-trail-chest {
-  0% { transform: rotate(0); animation-timing-function: cubic-bezier(.33, .66, .66, 1); }
-  25% { transform: rotate(-7deg); animation-timing-function: cubic-bezier(.37, 0, .63, 1); }
-  75% { transform: rotate(7deg); animation-timing-function: cubic-bezier(.33, 0, .66, .33); }
-  100% { transform: rotate(0); }
-}
-/* Reduced motion: no idle sway, and only a slow, small swing while someone points at him. */
+/* A pendulum that never stops swinging, only its reach changes: a gentle sway at rest, a big swing while someone points
+   at him (or taps him). --hang-reach is a typed property, so the browser eases it: when the pointer leaves, the swing
+   loses height bit by bit and settles back into the sway instead of jumping there. The legs and the chest trail. */
+@property --hang-reach { syntax: "<angle>"; inherits: true; initial-value: 1deg; }
+.hang__swing { --hang-reach: 1deg; display: block; width: 44px; margin-inline: auto; transform-origin: 50% 0;
+  animation: hang-pendulum 1.9s ease-in-out -.95s infinite; transition: --hang-reach 3.2s cubic-bezier(.25, .6, .3, 1); }
+.hang__legs { animation: hang-trail 1.9s ease-in-out -.81s infinite; }
+.hang__chest { animation: hang-trail-chest 1.9s ease-in-out -.85s infinite; }
+.egg--hang:hover .hang__swing, body:has(.mi:hover) .hang__swing,
+.egg--hang-m:hover .hang__swing, .say-cb:checked + .egg--hang-m .hang__swing, .say-cb:checked + .egg--hang .hang__swing {
+  --hang-reach: 11deg; transition-duration: 1.1s; transition-timing-function: ease-out; }
+@keyframes hang-pendulum { 0%, 100% { transform: rotate(calc(var(--hang-reach) * -1)); } 50% { transform: rotate(var(--hang-reach)); } }
+@keyframes hang-trail { 0%, 100% { transform: rotate(calc(var(--hang-reach) * .85)); } 50% { transform: rotate(calc(var(--hang-reach) * -.85)); } }
+@keyframes hang-trail-chest { 0%, 100% { transform: rotate(calc(var(--hang-reach) * .65)); } 50% { transform: rotate(calc(var(--hang-reach) * -.65)); } }
+/* Reduced motion: no sway at rest, a small swing while pointed at, and the legs and chest stay with him. */
 @media (prefers-reduced-motion: reduce) {
-  .hang__swing { animation: none; }
-  .egg--hang:hover .hang__swing, body:has(.mi:hover) .hang__swing, .egg--hang-m:is(:hover, :focus) .hang__swing { animation: hang-swing-soft 3.2s ease-in-out infinite; }
-  .egg--hang:hover .hang__legs, body:has(.mi:hover) .hang__legs, .egg--hang:hover .hang__chest, body:has(.mi:hover) .hang__chest,
-  .egg--hang-m:is(:hover, :focus) .hang__legs, .egg--hang-m:is(:hover, :focus) .hang__chest { animation: none; }
+  .hang__swing { --hang-reach: 0deg; }
+  .egg--hang:hover .hang__swing, body:has(.mi:hover) .hang__swing,
+  .egg--hang-m:hover .hang__swing, .say-cb:checked + .egg--hang-m .hang__swing, .say-cb:checked + .egg--hang .hang__swing { --hang-reach: 4deg; }
+  .hang__legs, .hang__chest { animation: none; }
 }
-@keyframes hang-swing-soft { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(4deg); } 75% { transform: rotate(-4deg); } }
 @media (max-width: 74.99rem) { .egg--hang { display: none; } }
 /* The cursor on the laptop in the desk drawing blinks, like a terminal waiting. */
 .desk__cursor { animation: desk-blink 1.1s steps(1) infinite; }
 @keyframes desk-blink { 50% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .desk__cursor { animation: none; } }
-/* On a phone nothing can be pointed at, so tapping an egg shows its line in a pixel speech bubble above it.
-   No script: a tap gives the egg focus (tabindex="-1" keeps it out of the keyboard order), tapping anywhere else
-   takes the focus and the bubble away. Only on touch screens; with a mouse the <title> tooltip does the job. */
-.egg:focus { outline: none; }
+/* Click (or tap) an egg and its line shows in a pixel speech bubble above it, popping in pixel by pixel; after three
+   seconds it dissolves in pixels. Another click closes it, the next one shows it again. No script: each egg is the
+   label of a hidden checkbox. */
+.say-cb { display: none; }
+.egg[data-say] { cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .egg::after, .egg::before { display: none; }
-@media (hover: none) {
-  .egg[data-say] { cursor: pointer; -webkit-tap-highlight-color: transparent; }
-  .egg[data-say]:focus::after { content: attr(data-say); display: block; position: absolute; right: -2px; bottom: calc(100% + 12px); z-index: 5;
-    padding: .45rem .6rem .4rem; white-space: nowrap; background: var(--panel); color: var(--ink); font: 400 .75rem/1.2 var(--mono);
-    letter-spacing: .06em; text-transform: uppercase; line-height: 1.2;
-    /* a pixel frame: four flat edges leave the corners notched, then a hard shadow */
-    box-shadow: 0 -2px 0 var(--ink), 0 2px 0 var(--ink), -2px 0 0 var(--ink), 2px 0 0 var(--ink), 5px 5px 0 var(--lift); }
-  .egg[data-say]:focus::before { content: ""; display: block; position: absolute; right: 14px; bottom: calc(100% + 2px); z-index: 6;
-    width: 4px; height: 4px; background: var(--ink); box-shadow: 4px -4px 0 var(--ink), 0 -4px 0 var(--panel), 0 -8px 0 var(--panel), 4px -8px 0 var(--panel); }
-  /* The map sits just under the menu bar: its bubble opens below it instead. */
-  .egg--map[data-say]:focus::after { bottom: auto; top: calc(100% + 12px); }
-  .egg--map[data-say]:focus::before { bottom: auto; top: calc(100% + 2px); box-shadow: 4px 4px 0 var(--ink), 0 4px 0 var(--panel), 0 8px 0 var(--panel), 4px 8px 0 var(--panel); }
+.say-cb:checked + .egg[data-say]::after { content: attr(data-say); display: block; position: absolute; right: -2px; bottom: calc(100% + 12px); z-index: 5;
+  padding: .45rem .6rem .4rem; white-space: nowrap; background: var(--panel); color: var(--ink); font: 400 .75rem/1.2 var(--mono);
+  letter-spacing: .06em; text-transform: uppercase; line-height: 1.2; pointer-events: none;
+  /* a pixel frame: four flat edges leave the corners notched, then a hard shadow */
+  box-shadow: 0 -2px 0 var(--ink), 0 2px 0 var(--ink), -2px 0 0 var(--ink), 2px 0 0 var(--ink), 5px 5px 0 var(--lift);
+  animation: say-pixels 3.6s steps(1) forwards; }
+.say-cb:checked + .egg[data-say]::before { content: ""; display: block; position: absolute; right: 14px; bottom: calc(100% + 2px); z-index: 6;
+  width: 4px; height: 4px; background: var(--ink); box-shadow: 4px -4px 0 var(--ink), 0 -4px 0 var(--panel), 0 -8px 0 var(--panel), 4px -8px 0 var(--panel);
+  animation: say-pixels 3.6s steps(1) forwards; }
+/* in and out in pixels: a sparse grid, a checkerboard, whole; and back */
+@keyframes say-pixels {
+  0% { -webkit-mask: radial-gradient(#000 0 1px, transparent 1.5px) 0 0 / 4px 4px; mask: radial-gradient(#000 0 1px, transparent 1.5px) 0 0 / 4px 4px; }
+  2.5% { -webkit-mask: repeating-conic-gradient(#000 0 25%, transparent 0 50%) 0 0 / 4px 4px; mask: repeating-conic-gradient(#000 0 25%, transparent 0 50%) 0 0 / 4px 4px; }
+  5%, 83% { -webkit-mask: none; mask: none; opacity: 1; }
+  86% { -webkit-mask: repeating-conic-gradient(#000 0 25%, transparent 0 50%) 0 0 / 4px 4px; mask: repeating-conic-gradient(#000 0 25%, transparent 0 50%) 0 0 / 4px 4px; }
+  91% { -webkit-mask: radial-gradient(#000 0 1px, transparent 1.5px) 0 0 / 4px 4px; mask: radial-gradient(#000 0 1px, transparent 1.5px) 0 0 / 4px 4px; }
+  96%, 100% { opacity: 0; visibility: hidden; }
 }
+/* The map sits just under the menu bar: its bubble opens below it instead. */
+.say-cb:checked + .egg--map[data-say]::after { bottom: auto; top: calc(100% + 12px); }
+.say-cb:checked + .egg--map[data-say]::before { bottom: auto; top: calc(100% + 2px); box-shadow: 4px 4px 0 var(--ink), 0 4px 0 var(--panel), 0 8px 0 var(--panel), 4px 8px 0 var(--panel); }
+/* The pirate under the menu bar: the bubble opens to his right, level with him. */
+.say-cb:checked + .egg--hang[data-say]::after { right: auto; left: 78%; bottom: auto; top: 40%; }
+.say-cb:checked + .egg--hang[data-say]::before { right: auto; left: 70%; bottom: auto; top: calc(40% + 12px); box-shadow: none; width: 6px; height: 4px; }
+/* The lightsaber leans on the note: the bubble opens over the note, to its left. */
+.say-cb:checked + .egg--saber[data-say]::after { bottom: calc(100% + 16px); }
+.say-cb:checked + .egg--saber[data-say]::before { right: 2px; bottom: calc(100% + 6px); }
 /* Where the menu bar has no room for him (phones, tablets, small laptops), the pirate hangs from the bottom edge
    of the "Why no ads?" note instead, in the space above the footer. Tap (or point at) him to make him swing. */
 .egg--hang-m { display: none; top: 100%; left: 1.75rem; width: 64px; height: 76px; }
+.egg--hang-m .egg__art { transition: none; }
 .egg--hang-m .hang__swing { width: 26px; }
 @media (max-width: 74.99rem) { .egg--hang-m { display: block; } }
-@media (hover: none) {
-  .egg--hang-m[data-say]:focus::after { right: auto; left: -2px; bottom: auto; top: calc(100% + 10px); }
-  .egg--hang-m[data-say]:focus::before { right: auto; left: 14px; bottom: auto; top: 100%; box-shadow: 4px 4px 0 var(--ink), 0 4px 0 var(--panel), 0 8px 0 var(--panel), 4px 8px 0 var(--panel); }
-}
+.say-cb:checked + .egg--hang-m[data-say]::after { right: auto; left: -2px; bottom: auto; top: calc(100% + 10px); }
+.say-cb:checked + .egg--hang-m[data-say]::before { right: auto; left: 14px; bottom: auto; top: 100%; box-shadow: 4px 4px 0 var(--ink), 0 4px 0 var(--panel), 0 8px 0 var(--panel), 4px 8px 0 var(--panel); }
 /* A Swiss A350 waits on the line above the promises, like on a runway. Click (or tap) it once and it takes off:
    it rolls, lifts its nose, pulls up its wheels and climbs away. No script: the click ticks a hidden checkbox, so
    it stays gone until the page is loaded again. */
@@ -752,11 +755,10 @@ body { overflow-x: clip; }   /* the climb leaves the page sideways without makin
   85% { opacity: 1; transform: translateY(var(--fall)); }
   86%, 100% { opacity: 0; transform: translateY(var(--fall)); }
 }
-/* After the repair the crack says one thing only. A tap or click gives it focus and the bubble shows, like the phone
-   bubbles of the other eggs; clicking elsewhere hides it. */
+/* After the repair the crack says one thing only, in the same pixel bubble as the other eggs: a click shows it for
+   three seconds, another click closes it. */
 .crack-tide { display: none; position: absolute; z-index: 3; left: 32%; bottom: 0; width: 30%; height: 56%; cursor: pointer; pointer-events: auto;
   visibility: hidden; -webkit-tap-highlight-color: transparent; }
-.crack-tide:focus { outline: none; }
 #crack-3:checked ~ .crack-tide { display: block; animation: crack-tide-on 0s 12.3s forwards; }
 @keyframes crack-tide-on { to { visibility: visible; } }
 .crack-tide__say { display: none; position: absolute; left: 50%; bottom: calc(100% + 14px); z-index: 5; align-items: center; gap: .5rem;
@@ -764,6 +766,6 @@ body { overflow-x: clip; }   /* the climb leaves the page sideways without makin
   transform: translateX(-50%); box-shadow: 0 -2px 0 var(--ink), 0 2px 0 var(--ink), -2px 0 0 var(--ink), 2px 0 0 var(--ink), 5px 5px 0 var(--lift); }
 .crack-tide__say::after { content: ""; position: absolute; left: 50%; top: 100%; width: 4px; height: 4px; margin-top: 2px; background: var(--ink);
   box-shadow: 4px -4px 0 var(--ink), 0 -4px 0 var(--panel), 0 -8px 0 var(--panel), 4px -8px 0 var(--panel); }
-.crack-tide:focus .crack-tide__say { display: flex; }
+.say-cb:checked + .crack-tide .crack-tide__say { display: flex; animation: say-pixels 3.6s steps(1) forwards; }
 .crack-tide__flag { display: block; flex: none; width: 27px; height: 18px; max-width: none; image-rendering: pixelated; box-shadow: 0 0 0 1px var(--ink); }
 @media (max-width: 39.99rem) { .wallcrack { left: 38%; } }
