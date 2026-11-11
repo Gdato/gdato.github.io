@@ -24,10 +24,7 @@ layout: default
       {%- if has_play %}
       <li><a class="btn btn--accent" rel="noopener noreferrer" href="{{ app.play_url }}">Get it on Google Play <span aria-hidden="true">↗</span></a></li>
       {%- endif %}
-      <li><a class="btn" href="#features">What it does</a></li>
-      {%- if app.support %}
-      <li><a class="btn{% unless has_play %} btn--accent{% endunless %}" href="{{ app.url | append: 'support/' | relative_url }}">Support the app</a></li>
-      {%- endif %}
+      <li><a class="btn{% unless has_play %} btn--accent{% endunless %}" href="#features">What it does</a></li>
     </ul>
     {%- if app.play == "preparing" and has_play == false %}
     <p class="note">The release on Google Play is in preparation.</p>
@@ -91,9 +88,11 @@ layout: default
     {%- if page.terms %}
     <li><a class="paper" href="{{ app.url | append: 'terms' | relative_url }}"><span class="label">Read</span><strong>Terms of use</strong><span>The promises I make, and how to use the app safely.</span></a></li>
     {%- endif %}
-    {%- if app.support %}
-    <li><a class="paper" href="{{ app.url | append: 'support/' | relative_url }}"><span class="label">If you like it</span><strong>Support the app</strong><span>A donation keeps it free of ads. Never expected.</span></a></li>
-    {%- endif %}
+    {%- comment -%}
+      No link to the support (donation) page here: the Google Play builds link this page, and Google Play allows no
+      way, even a few taps away, to pay outside Google Play. The donation pages are opened only by the full builds.
+      In the Play builds, tips go through the tip jar inside the app.
+    {%- endcomment %}
   </ul>
 </section>
 
