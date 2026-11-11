@@ -58,7 +58,7 @@
 
   <footer class="foot wrap{% if page.window == false %} wrap--wide{% endif %}" id="contact">
     <div class="foot__grid">
-      {%- if page.url == "/" %}<span class="egg egg--book" tabindex="-1" data-say="Klaatu barada... nikto?">{% include eggs/book.svg %}</span>{% endif %}
+      {%- if page.url == "/" %}<span class="egg egg--book" tabindex="-1" data-say="Klaatu barada... nikto?">{% include eggs/book.svg %}</span>{% include wallcrack.html %}{% endif %}
       <div class="foot__sign">
         {% unless page.layout == "support" or page.signed %}{% include signature.html %}{% endunless %}
         <p class="label">{% include heart.html label="A heart, half Swiss flag and half Spanish flag" %}<span>G.&#x202F;Dato · Made in Switzerland</span></p>
