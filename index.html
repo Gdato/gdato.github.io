@@ -17,7 +17,13 @@ permalink: /
   </div>
   <figure class="window hero__desk">
     <div class="window__bar" aria-hidden="true"><span class="window__box"></span><span class="window__name">My desk</span></div>
-    {% include desk.svg %}
+    <div class="desk-wrap">
+      <input class="crack-cb" id="crack-1" type="checkbox" tabindex="-1" aria-hidden="true">
+      <input class="crack-cb" id="crack-2" type="checkbox" tabindex="-1" aria-hidden="true">
+      <input class="crack-cb" id="crack-3" type="checkbox" tabindex="-1" aria-hidden="true">
+      {% include desk.svg %}
+      {% include dive.html %}
+    </div>
   </figure>
 </section>
 

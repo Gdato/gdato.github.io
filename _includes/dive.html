@@ -1,0 +1,33 @@
+{%- comment -%}
+  The crack under the desk hides a dive. Three clicks on the crack, no script: three hidden checkboxes, each label
+  only reachable once the one before is ticked. Each of the first two clicks makes the crack bigger and shakes a flake of plaster loose. The third tears
+  the wall open: deep water, a diver girl swimming down, bubbles. Then a trowel plasters the hole shut, and from then
+  on drops of water seep from the crack. Nothing resets until the page is loaded again. Placed over the desk drawing,
+  in percent of it (the drawing's viewBox is 520 x 332).
+{%- endcomment -%}
+<label class="crack-hit crack-hit--1" for="crack-1" aria-hidden="true"></label>
+<label class="crack-hit crack-hit--2" for="crack-2" aria-hidden="true"></label>
+<label class="crack-hit crack-hit--3" for="crack-3" aria-hidden="true"></label>
+<span class="crack-flake crack-flake--1" aria-hidden="true"></span>
+<span class="crack-flake crack-flake--2" aria-hidden="true"></span>
+<span class="dive" aria-hidden="true">
+  <span class="dive__rim"></span>
+  <span class="dive__shade"></span>
+  <span class="dive__hole">
+    <span class="dive__water"></span>
+    <span class="dive__swimmer">{% include eggs/diver.svg %}</span>
+    <span class="dive__bubble" style="--x: 30%; --d: .2s"></span>
+    <span class="dive__bubble" style="--x: 44%; --d: .7s"></span>
+    <span class="dive__bubble" style="--x: 57%; --d: 1.1s"></span>
+    <span class="dive__bubble" style="--x: 66%; --d: 1.6s"></span>
+    <span class="dive__bubble" style="--x: 76%; --d: 2.1s"></span>
+  </span>
+  <span class="dive__patch"><span class="dive__plaster"></span><span class="dive__trowel"></span></span>
+  <span class="dive__chunk" style="--x: 30%; --y: 30%; --s: 5px; --d: .05s; --dx: -6px; --r: -160deg"></span>
+  <span class="dive__chunk" style="--x: 52%; --y: 18%; --s: 4px; --d: .15s; --dx: 4px; --r: 120deg"></span>
+  <span class="dive__chunk" style="--x: 66%; --y: 40%; --s: 6px; --d: .25s; --dx: 7px; --r: 200deg"></span>
+  <span class="dive__chunk" style="--x: 20%; --y: 60%; --s: 4px; --d: .35s; --dx: -3px; --r: -90deg"></span>
+  <span class="dive__chunk" style="--x: 78%; --y: 62%; --s: 3px; --d: .45s; --dx: 5px; --r: 140deg"></span>
+</span>
+<span class="crack-drip" style="--d: 0s" aria-hidden="true"></span>
+<span class="crack-drip crack-drip--b" style="--d: 1.7s" aria-hidden="true"></span>
