@@ -5,7 +5,7 @@ permalink: /pdf-werkstatt/privacy
 
 # PDF Werkstatt: privacy policy
 
-Effective date: 11 November 2026  
+Effective date: 12 November 2026  
 Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
@@ -36,7 +36,6 @@ Everything the app knows is kept in its private storage on your phone, which oth
 |---|---|---|
 | Settings (appearance including the colour palette, language, text size, paper size, screen and vibration options), and that you have seen the welcome screens | To remember your choices | App storage |
 | The count of created PDFs, and which tip prompts were shown and when | So the app can ask, once in a while and not too often, whether you would like to leave a tip. Only the number and the dates are kept, nothing about the files | App storage |
-| Whether you are a supporter (Google Play edition) | So the supporter colour palettes work offline | App storage |
 | Temporary files: copies of the files you picked, pictures from the scanner, working files and the finished PDFs shown under "Recent" | To do the job you asked for, and to let you save, share or open the result | App cache |
 
 **How long temporary files are kept.** Copies of the files you pick are deleted at the latest when you close the app,
@@ -63,7 +62,7 @@ from another app.
 
 If you have turned on backup to your Google account in Android's settings, or you move to a new phone, Android may
 copy the app's settings, and with them the count of created PDFs and which tip prompts were shown and when, which
-are kept in the same place. Nothing else is included: no documents, no temporary files and not the supporter flag.
+are kept in the same place. Nothing else is included: no documents and no temporary files.
 This is Android's feature under Google's terms; you can turn it off in Android's settings.
 
 ## What leaves your phone (Google Play edition)
@@ -73,16 +72,13 @@ first has two parts: what the app asks Google Play, and what Google's billing li
 
 ### 1. Google Play, for tips
 
-Tips and the one-time supporter thank-you are purchases through Google Play. Google processes the payment and holds
-your payment details; we never see them. We only learn, through the billing library, that a purchase happened, so the
-app can thank you and, for the supporter thank-you, remember it on your phone.
+Tips are purchases through Google Play. Google processes the payment and holds your payment details; we never see
+them. We only learn, through the billing library, that a tip went through, so the app can thank you. Tips unlock
+nothing, so the app keeps no record of them.
 
 The app asks the Google Play app on your phone about purchases each time the app comes to the foreground (to finish a
-tip that was interrupted and to confirm the supporter thank-you), when you open the support sheet and when you leave a
+tip that was interrupted), when you open the support sheet and when you leave a
 tip.
-
-Purchases can be restored on another phone signed in to the same Google account ("Restore purchases" in the support
-sheet).
 
 **Google Play Billing library reports.** The Play Billing library, written and supplied by Google, is part of the
 Google Play edition. It talks to Google Play on the phone, and it sends technical reports about its own work (for

@@ -5,7 +5,7 @@ permalink: /pdf-werkstatt/terms
 
 # PDF Werkstatt: terms of use
 
-Effective date: 11 November 2026  
+Effective date: 12 November 2026  
 Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
@@ -76,8 +76,7 @@ country gives you and that can't be waived by contract.
 - The app is free, and every feature is included for everyone.
 - If you like it, you can buy me a coffee. **Tips are voluntary and unlock nothing**: no feature depends on them.
 - In the Google Play edition, tips are paid through Google Play under Google's terms. We never see your payment
-  details. The one-time supporter thank-you adds extra colour palettes; they change how the app looks and nothing
-  else. It is tied to the Google account you used and can be restored on another phone ("Restore purchases").
+  details.
 - **Refunds** follow Google Play's refund policy; you can request one through Google Play. Your statutory consumer
   rights stay in place.
 - The edition outside Google Play has no payments inside the app. Its support screen opens a support page on this
