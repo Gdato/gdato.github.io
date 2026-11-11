@@ -17,7 +17,8 @@
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, "Courier New", monospace;
-  --gap: clamp(3rem, 7vw, 5rem);   /* space between the big sections */
+  --gap: clamp(3.5rem, 8vw, 6rem);   /* space between the big sections */
+  --grain: .16;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -33,12 +34,15 @@
     --note: #25272b;
     --heart-line: #000;
     --lift: #565c65;       /* a black shadow would vanish on the dark page */
+    --grain: .3;
   }
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scrollbar-color: var(--ink-2) transparent; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: var(--grain);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .25 0 0 0 0 .2 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 body { margin: 0; min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; background: var(--paper); color: var(--ink); font: 400 1.125rem/1.6 var(--sans); }
 ::selection { background: var(--accent); color: #fff; }
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em; }
@@ -80,6 +84,9 @@ main { flex: 1 0 auto; }
 .bar__brand, .bar__link { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1rem; text-decoration: none; }
 .bar__brand { flex: 1 1 auto; justify-content: flex-start; gap: .6rem; font: 400 1.4rem/1 var(--serif); }
 .bar__link { border-left: 1px solid var(--ink); }
+.bar__ver { align-self: center; margin-left: .15rem; padding: .22rem .4rem .18rem; background: var(--ink); color: var(--panel); font: 400 .6875rem/1 var(--mono);
+  letter-spacing: .1em; text-transform: uppercase; box-shadow: 2px 2px 0 var(--accent); transform: translateY(-1px); }
+.bar__brand:hover .bar__ver { background: var(--panel); color: var(--ink); }
 .bar__brand:hover, .bar__link:hover { background: var(--ink); color: var(--panel); }
 .bar__brand:focus-visible, .bar__link:focus-visible { outline-offset: -5px; }
 @media (max-width: 33.99rem) {
@@ -90,7 +97,7 @@ main { flex: 1 0 auto; }
 
 main { padding-block: clamp(1.5rem, 4vw, 3rem) 1rem; }
 main > section, main > .cards { margin-bottom: var(--gap); }
-.section-title { margin: 0 0 1.5rem; padding-bottom: .5rem; border-bottom: 1px solid var(--ink); }
+.section-title { margin: 0 0 1.75rem; padding-bottom: .6rem; border-bottom: 1px solid var(--ink); }
 .section-title + .note { margin-top: -.5rem; max-width: 44em; }
 
 /* Old-OS window: a striped title bar with a close box and a centred name. */
@@ -181,6 +188,9 @@ main > section, main > .cards { margin-bottom: var(--gap); }
 }
 .app-card { position: relative; display: flex; flex-direction: column; margin: 0; transition: transform .1s, box-shadow .1s; }
 .app-card:has(a):hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 var(--lift); }
+.dock__phone { transition: transform .2s ease-out; }
+.app-card:has(a):hover .dock__phone { transform: translateY(-6px); }
+@media (prefers-reduced-motion: reduce) { .dock__phone { transition: none; } .app-card:has(a):hover .dock__phone { transform: none; } }
 @media (prefers-reduced-motion: reduce) { .app-card, .app-card:has(a):hover { transform: none; transition: none; } }
 .app-card__screen { container-type: inline-size; display: grid; place-items: center; align-content: center; gap: 1rem; aspect-ratio: 3 / 4; max-height: 34rem;
   padding: 1.25rem 1rem 1.5rem; overflow: hidden; border-bottom: 1px solid var(--ink); }
@@ -370,6 +380,14 @@ main > section, main > .cards { margin-bottom: var(--gap); }
 .foot__sign .label { display: flex; align-items: center; gap: .7rem; margin: 0; }
 .foot__contact p { margin: 0 0 .5rem; overflow-wrap: anywhere; }
 .foot__small { color: var(--ink-2); font-size: 1rem; margin: 0; padding-top: 1.25rem; border-top: 1px dashed var(--ink); }
+/* An old status bar along the bottom of the page. */
+.status { display: flex; flex-wrap: wrap; margin: 1.5rem 0 0; background: var(--panel); border: 1px solid var(--ink); box-shadow: 3px 3px 0 var(--lift);
+  font: 400 .75rem/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+.status__cell { flex: 1 1 auto; padding: .55rem .8rem; border-right: 1px solid var(--line); white-space: nowrap; }
+.status__cell:first-child { flex-grow: 0; background: var(--ink); color: var(--panel); border-right-color: var(--ink); }
+.status__cell--end { flex-grow: 0; border-right: 0; text-align: right; }
+@media (max-width: 33.99rem) { .status__cell { flex: 1 1 50%; border-bottom: 1px solid var(--line); } .status__cell:nth-child(2) { border-right: 0; }
+  .status__cell:nth-child(n+3) { flex-basis: 100%; border-right: 0; text-align: left; } .status__cell:last-child { border-bottom: 0; } }
 
 /* Easter eggs: small pixel things from films I grew up with, left at the edges of boxes on the home page.
    Decoration only (aria-hidden), with a line from the film on hover. The pixel art is in _includes/eggs;

@@ -35,7 +35,7 @@
   <a class="skip" href="#main">Skip to content</a>
   <header class="bar{% if page.window == false %} bar--wide{% endif %}">
     <nav class="bar__inner" aria-label="Site">
-      <a class="bar__brand" href="{{ '/' | relative_url }}">{% include heart.html %}<span>G.&#x202F;Dato</span></a>
+      <a class="bar__brand" href="{{ '/' | relative_url }}">{% include heart.html %}<span>G.&#x202F;Dato</span><span class="bar__ver" title="Version {{ site.version }} of this site">v{{ site.version }}</span></a>
       <a class="bar__link" href="{{ '/#work' | relative_url }}">Apps</a>
       <a class="bar__link" href="{{ '/#why' | relative_url }}">Why no ads</a>
       <a class="bar__link" href="#contact">Contact</a>
@@ -69,6 +69,8 @@
       </div>
     </div>
     <p class="foot__small">This site has no trackers, no analytics, no cookies and no scripts. It is a few plain pages, like in the old days.</p>
+    {%- assign live = site.data.apps | where: "status", "live" %}
+    <p class="status" aria-label="About this site"><span class="status__cell">G.&#x202F;Dato v{{ site.version }}</span><span class="status__cell">{{ site.data.apps.size }} apps, {{ live.size }} ready</span><span class="status__cell">0 trackers · 0 cookies · 0 scripts</span><span class="status__cell status__cell--end">Switzerland · {{ site.time | date: "%Y" }}</span></p>
   </footer>
 </body>
 </html>
