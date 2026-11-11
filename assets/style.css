@@ -495,15 +495,80 @@ body { overflow-x: clip; }   /* the climb leaves the page sideways without makin
 .plane-go { display: none; }
 .egg--plane { left: .5rem; bottom: calc(100% - 1px); width: 114px; cursor: pointer; transform-origin: 48% 92%; }
 .egg--plane:hover .egg__art { transform: none; }
-.plane-go:checked + .egg--plane { pointer-events: none; animation: plane-takeoff 4.2s forwards; }
-.plane-go:checked + .egg--plane .plane__gear { animation: plane-gear 4.2s forwards; }
+.plane-go:checked + .egg--plane { pointer-events: none; animation: plane-takeoff 5.6s linear forwards; }
+@media (max-width: 39.99rem) { .plane-go:checked + .egg--plane { animation-name: plane-takeoff-m; } }
+.plane-go:checked + .egg--plane .plane__gear { animation: plane-gear 5.6s forwards; }
 @keyframes plane-takeoff {
-  0% { transform: translate(0, 0) rotate(0); animation-timing-function: cubic-bezier(.5, 0, .9, .5); }
-  42% { transform: translate(min(320px, 38vw), 0) rotate(0); animation-timing-function: ease-out; }
-  55% { transform: translate(min(450px, 54vw), -14px) rotate(-9deg); animation-timing-function: cubic-bezier(.3, 0, .9, .7); }
-  100% { transform: translate(110vw, -520px) rotate(-14deg); }
+  0.00% { transform: translate(0.0px, 0.0px) rotate(-0.00deg); }
+  3.12% { transform: translate(2.0px, 0.0px) rotate(-0.00deg); }
+  6.25% { transform: translate(6.5px, 0.0px) rotate(-0.00deg); }
+  9.38% { transform: translate(14.0px, 0.0px) rotate(-0.00deg); }
+  12.50% { transform: translate(24.5px, 0.0px) rotate(-0.00deg); }
+  15.62% { transform: translate(38.5px, 0.0px) rotate(-0.00deg); }
+  18.75% { transform: translate(55.0px, 0.0px) rotate(-0.00deg); }
+  21.88% { transform: translate(75.0px, 0.0px) rotate(-0.00deg); }
+  25.00% { transform: translate(97.5px, 0.0px) rotate(-0.00deg); }
+  28.12% { transform: translate(123.5px, 0.0px) rotate(-0.00deg); }
+  31.25% { transform: translate(152.5px, 0.0px) rotate(-0.00deg); }
+  34.38% { transform: translate(184.5px, 0.0px) rotate(-0.00deg); }
+  37.50% { transform: translate(219.5px, 0.0px) rotate(-0.00deg); }
+  40.62% { transform: translate(257.5px, 0.0px) rotate(-0.00deg); }
+  43.75% { transform: translate(299.0px, 0.0px) rotate(-0.00deg); }
+  46.88% { transform: translate(343.0px, -0.0px) rotate(-0.32deg); }
+  50.00% { transform: translate(390.0px, -1.9px) rotate(-5.12deg); }
+  53.12% { transform: translate(440.0px, -9.4px) rotate(-11.47deg); }
+  56.25% { transform: translate(492.0px, -21.1px) rotate(-13.00deg); }
+  59.38% { transform: translate(547.0px, -33.8px) rotate(-13.00deg); }
+  62.50% { transform: translate(604.5px, -47.0px) rotate(-13.00deg); }
+  65.62% { transform: translate(665.5px, -61.1px) rotate(-13.00deg); }
+  68.75% { transform: translate(729.5px, -75.9px) rotate(-13.00deg); }
+  71.88% { transform: translate(796.0px, -91.3px) rotate(-13.00deg); }
+  75.00% { transform: translate(866.0px, -107.4px) rotate(-13.00deg); }
+  78.12% { transform: translate(938.5px, -124.2px) rotate(-13.00deg); }
+  81.25% { transform: translate(1014.5px, -141.7px) rotate(-13.00deg); }
+  84.38% { transform: translate(1093.0px, -159.8px) rotate(-13.00deg); }
+  87.50% { transform: translate(1174.5px, -178.6px) rotate(-13.00deg); }
+  90.62% { transform: translate(1259.5px, -198.3px) rotate(-13.00deg); opacity: 0.94; }
+  93.75% { transform: translate(1347.0px, -218.5px) rotate(-13.00deg); opacity: 0.63; }
+  96.88% { transform: translate(1437.5px, -239.4px) rotate(-13.00deg); opacity: 0.31; }
+  100.00% { transform: translate(1531.0px, -260.9px) rotate(-13.00deg); opacity: 0.00; }
 }
-@keyframes plane-gear { 0%, 60% { opacity: 1; } 68%, 100% { opacity: 0; } }
+@keyframes plane-takeoff-m {
+  0.00% { transform: translate(0.0px, 0.0px) rotate(-0.00deg); }
+  3.12% { transform: translate(1.0px, 0.0px) rotate(-0.00deg); }
+  6.25% { transform: translate(3.0px, 0.0px) rotate(-0.00deg); }
+  9.38% { transform: translate(6.5px, 0.0px) rotate(-0.00deg); }
+  12.50% { transform: translate(11.5px, 0.0px) rotate(-0.00deg); }
+  15.62% { transform: translate(17.5px, 0.0px) rotate(-0.00deg); }
+  18.75% { transform: translate(25.0px, 0.0px) rotate(-0.00deg); }
+  21.88% { transform: translate(34.0px, 0.0px) rotate(-0.00deg); }
+  25.00% { transform: translate(44.5px, 0.0px) rotate(-0.00deg); }
+  28.12% { transform: translate(56.5px, 0.0px) rotate(-0.00deg); }
+  31.25% { transform: translate(69.5px, 0.0px) rotate(-0.00deg); }
+  34.38% { transform: translate(84.0px, 0.0px) rotate(-0.00deg); }
+  37.50% { transform: translate(100.0px, 0.0px) rotate(-0.00deg); }
+  40.62% { transform: translate(117.5px, 0.0px) rotate(-0.00deg); }
+  43.75% { transform: translate(136.0px, 0.0px) rotate(-0.00deg); }
+  46.88% { transform: translate(156.5px, -0.0px) rotate(-0.08deg); }
+  50.00% { transform: translate(177.5px, -0.2px) rotate(-1.31deg); }
+  53.12% { transform: translate(200.5px, -1.2px) rotate(-3.85deg); }
+  56.25% { transform: translate(225.0px, -3.6px) rotate(-7.20deg); }
+  59.38% { transform: translate(250.0px, -7.4px) rotate(-10.42deg); }
+  62.50% { transform: translate(276.5px, -12.9px) rotate(-12.66deg); }
+  65.62% { transform: translate(304.5px, -19.3px) rotate(-13.00deg); }
+  68.75% { transform: translate(333.5px, -26.0px) rotate(-13.00deg); }
+  71.88% { transform: translate(364.0px, -33.1px) rotate(-13.00deg); }
+  75.00% { transform: translate(395.5px, -40.4px) rotate(-13.00deg); }
+  78.12% { transform: translate(428.5px, -48.0px) rotate(-13.00deg); }
+  81.25% { transform: translate(463.0px, -55.9px) rotate(-13.00deg); }
+  84.38% { transform: translate(499.0px, -64.2px) rotate(-13.00deg); }
+  87.50% { transform: translate(536.0px, -72.8px) rotate(-13.00deg); }
+  90.62% { transform: translate(574.5px, -81.7px) rotate(-13.00deg); opacity: 0.94; }
+  93.75% { transform: translate(614.5px, -90.9px) rotate(-13.00deg); opacity: 0.63; }
+  96.88% { transform: translate(655.5px, -100.4px) rotate(-13.00deg); opacity: 0.31; }
+  100.00% { transform: translate(698.0px, -110.2px) rotate(-13.00deg); opacity: 0.00; }
+}
+@keyframes plane-gear { 0%, 58% { opacity: 1; } 64%, 100% { opacity: 0; } }
 /* The take-off runs only when someone clicks the plane, so it also plays with reduced motion switched on. */
 /* The crack in the wall under the desk window (_includes/wallcrack.html). Positions are percent of its box. */
 .hero__desk { position: relative; }
@@ -604,3 +669,10 @@ body { overflow-x: clip; }   /* the climb leaves the page sideways without makin
   86%, 100% { opacity: 0; transform: translateY(900%); }
 }
 @media (max-width: 57.99rem) { .wallcrack { right: 10%; width: clamp(140px, 38%, 200px); } }
+/* Tyre smoke: small puffs left on the runway by the main wheels shortly before lift-off. Their places are fractions
+   of the take-off roll (330 px on a desk, 150 px on a phone); their delays are when the wheels pass there. */
+.plane-smoke { position: absolute; left: calc(.5rem + 55px + var(--f) * 330px); bottom: calc(100% - 6px); width: 16px; height: 16px; margin-left: -8px;
+  border-radius: 50%; background: radial-gradient(rgba(214, 218, 223, .95), rgba(214, 218, 223, 0) 70%); opacity: 0; pointer-events: none; }
+@media (max-width: 39.99rem) { .plane-smoke { left: calc(.5rem + 55px + var(--f) * 150px); } }
+.plane-go:checked ~ .plane-smoke { animation: plane-smoke 1s ease-out var(--d) forwards; }
+@keyframes plane-smoke { 0% { opacity: 1; transform: scale(.4); } 100% { opacity: 0; transform: translate(-30px, -8px) scale(2.6); } }
