@@ -425,9 +425,9 @@ main > section, main > .cards { margin-bottom: var(--gap); }
 .hang__legs { transform-origin: 0 0; }
 .hang__chest { transform-origin: 55% 0; }
 /* A pendulum: fastest through the middle, slowing at each end. The legs and the chest trail a little behind. */
-.egg--hang:hover .hang__swing, body:has(.mi:hover) .hang__swing { animation: hang-swing 1.9s infinite; }
-.egg--hang:hover .hang__legs, body:has(.mi:hover) .hang__legs { animation: hang-trail 1.9s .14s infinite; }
-.egg--hang:hover .hang__chest, body:has(.mi:hover) .hang__chest { animation: hang-trail-chest 1.9s .1s infinite; }
+.egg--hang:hover .hang__swing, body:has(.mi:hover) .hang__swing, .egg--hang-m:is(:hover, :focus) .hang__swing { animation: hang-swing 1.9s infinite; }
+.egg--hang:hover .hang__legs, body:has(.mi:hover) .hang__legs, .egg--hang-m:is(:hover, :focus) .hang__legs { animation: hang-trail 1.9s .14s infinite; }
+.egg--hang:hover .hang__chest, body:has(.mi:hover) .hang__chest, .egg--hang-m:is(:hover, :focus) .hang__chest { animation: hang-trail-chest 1.9s .1s infinite; }
 @keyframes hang-idle { 0%, 100% { transform: rotate(-1.2deg); } 50% { transform: rotate(1.2deg); } }
 @keyframes hang-swing {
   0% { transform: rotate(0); animation-timing-function: cubic-bezier(.33, .66, .66, 1); }
@@ -450,8 +450,9 @@ main > section, main > .cards { margin-bottom: var(--gap); }
 /* Reduced motion: no idle sway, and only a slow, small swing while someone points at him. */
 @media (prefers-reduced-motion: reduce) {
   .hang__swing { animation: none; }
-  .egg--hang:hover .hang__swing, body:has(.mi:hover) .hang__swing { animation: hang-swing-soft 3.2s ease-in-out infinite; }
-  .egg--hang:hover .hang__legs, body:has(.mi:hover) .hang__legs, .egg--hang:hover .hang__chest, body:has(.mi:hover) .hang__chest { animation: none; }
+  .egg--hang:hover .hang__swing, body:has(.mi:hover) .hang__swing, .egg--hang-m:is(:hover, :focus) .hang__swing { animation: hang-swing-soft 3.2s ease-in-out infinite; }
+  .egg--hang:hover .hang__legs, body:has(.mi:hover) .hang__legs, .egg--hang:hover .hang__chest, body:has(.mi:hover) .hang__chest,
+  .egg--hang-m:is(:hover, :focus) .hang__legs, .egg--hang-m:is(:hover, :focus) .hang__chest { animation: none; }
 }
 @keyframes hang-swing-soft { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(4deg); } 75% { transform: rotate(-4deg); } }
 @media (max-width: 74.99rem) { .egg--hang { display: none; } }
@@ -477,3 +478,30 @@ main > section, main > .cards { margin-bottom: var(--gap); }
   .egg--map[data-say]:focus::after { bottom: auto; top: calc(100% + 12px); }
   .egg--map[data-say]:focus::before { bottom: auto; top: calc(100% + 2px); box-shadow: 4px 4px 0 var(--ink), 0 4px 0 var(--panel), 0 8px 0 var(--panel), 4px 8px 0 var(--panel); }
 }
+/* Where the menu bar has no room for him (phones, tablets, small laptops), the pirate hangs from the bottom edge
+   of the "Why no ads?" note instead, in the space above the footer. Tap (or point at) him to make him swing. */
+.egg--hang-m { display: none; top: 100%; left: 1.75rem; width: 64px; height: 76px; }
+.egg--hang-m .hang__swing { width: 26px; }
+@media (max-width: 74.99rem) { .egg--hang-m { display: block; } }
+@media (hover: none) {
+  .egg--hang-m[data-say]:focus::after { right: auto; left: -2px; bottom: auto; top: calc(100% + 10px); }
+  .egg--hang-m[data-say]:focus::before { right: auto; left: 14px; bottom: auto; top: 100%; box-shadow: 4px 4px 0 var(--ink), 0 4px 0 var(--panel), 0 8px 0 var(--panel), 4px 8px 0 var(--panel); }
+}
+/* A Swiss A350 waits on the line above the promises, like on a runway. Click (or tap) it once and it takes off:
+   it rolls, lifts its nose, pulls up its wheels and climbs away. No script: the click ticks a hidden checkbox, so
+   it stays gone until the page is loaded again. */
+body { overflow-x: clip; }   /* the climb leaves the page sideways without making it scroll */
+.promises { position: relative; }
+.plane-go { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.egg--plane { left: .5rem; bottom: calc(100% - 1px); width: 114px; cursor: pointer; transform-origin: 48% 92%; }
+.egg--plane:hover .egg__art { transform: none; }
+.plane-go:checked + .egg--plane { pointer-events: none; animation: plane-takeoff 4.2s forwards; }
+.plane-go:checked + .egg--plane .plane__gear { animation: plane-gear 4.2s forwards; }
+@keyframes plane-takeoff {
+  0% { transform: translate(0, 0) rotate(0); animation-timing-function: cubic-bezier(.5, 0, .9, .5); }
+  42% { transform: translate(min(320px, 38vw), 0) rotate(0); animation-timing-function: ease-out; }
+  55% { transform: translate(min(450px, 54vw), -14px) rotate(-9deg); animation-timing-function: cubic-bezier(.3, 0, .9, .7); }
+  100% { transform: translate(110vw, -520px) rotate(-14deg); }
+}
+@keyframes plane-gear { 0%, 60% { opacity: 1; } 68%, 100% { opacity: 0; } }
+/* The take-off runs only when someone clicks the plane, so it also plays with reduced motion switched on. */

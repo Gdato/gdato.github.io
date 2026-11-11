@@ -21,7 +21,9 @@ permalink: /
   </figure>
 </section>
 
-<section aria-label="What I promise">
+<section class="promises" aria-label="What I promise">
+  <input class="plane-go" id="plane-go" type="checkbox" tabindex="-1" aria-hidden="true">
+  <label class="egg egg--plane" for="plane-go" aria-hidden="true">{% include eggs/plane.svg %}</label>
   <ul class="principles">
     <li><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="7" width="24" height="18"/><path d="M10 20l3-8 3 8M11 17.500h4M19 12v8h2.500a4 4 0 0 0 0-8z"/><path class="strike" d="M3 29L29 3"/></svg><strong>No ads</strong><span>Not one, in any app.</span></li>
     <li><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 16c4-7 9-10 13-10s9 3 13 10c-4 7-9 10-13 10S7 23 3 16z"/><circle cx="16" cy="16" r="4"/><path class="strike" d="M3 29L29 3"/></svg><strong>No tracking</strong><span>No analytics, no advertising ID.</span></li>
@@ -44,5 +46,6 @@ permalink: /
     <p>If an app is useful to you, you can support it with a small donation. Nobody has to: every franc is appreciated, and none is expected.</p>
     <div class="why__sign">{% include signature.html %}{% include heart.html %}</div>
     <span class="egg egg--saber">{% include eggs/saber.svg %}</span>
+    <span class="egg egg--hang-m" tabindex="-1" data-say="Hanging around since 1991."><span class="hang__swing">{% include eggs/hang.svg %}</span></span>
   </div>
 </section>
