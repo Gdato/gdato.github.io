@@ -9,8 +9,8 @@ Effective date: 11 November 2026
 Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
-This policy is for the Android app "PDF Werkstatt" (package `com.gdato.pdfwerkstatt`), as distributed on Google Play
-and as the edition distributed outside Google Play. It goes with the [terms of use](terms.md).
+This policy is for the Android app "PDF Werkstatt" (package `com.gdato.pdfwerkstatt`) in both editions: the one on
+Google Play and the one distributed outside it. It goes with the [terms of use](terms.md).
 
 ## The short version
 
@@ -20,11 +20,13 @@ and as the edition distributed outside Google Play. It goes with the [terms of u
   you, your phone or your documents.
 - **No ads.** There is no advertising code in the app.
 - **No hidden processes.** We wrote no background service, scheduled task or start-with-the-phone code. The app works
-  only while it is open.
+  only while it is open, with one exception in the Google Play edition that comes from Google, not from us: Google's
+  billing library may send its own technical report to Google a little later.
 
 There are three things you should know about, and they apply only to the Google Play edition: Google Play for tips,
-Google's document scanner, and the website you ask the app to turn into a PDF. They are described under
-"What leaves your phone".
+with the reports of the **Google Play Billing library**, which apps that sell through Google Play build in; Google's
+document scanner; and the website you ask the app to turn into a PDF. They are described under "What leaves your
+phone".
 
 ## What stays on your phone
 
@@ -32,18 +34,19 @@ Everything the app knows is kept in its private storage on your phone, which oth
 
 | What | Why | Where |
 |---|---|---|
-| Settings: theme, language, text size, default paper size, that you have seen the welcome screens | To remember your choices | App storage |
-| The number of PDFs you have created | So the app can ask, once in a while, whether you would like to leave a tip. Only the number is kept, nothing about the files | App storage |
+| Settings (appearance including the colour palette, language, text size, paper size, screen and vibration options), and that you have seen the welcome screens | To remember your choices | App storage |
+| The count of created PDFs, and which tip prompts were shown and when | So the app can ask, once in a while and not too often, whether you would like to leave a tip. Only the number and the dates are kept, nothing about the files | App storage |
 | Whether you are a supporter (Google Play edition) | So the supporter colour palettes work offline | App storage |
 | Temporary files: copies of the files you picked, pictures from the scanner, working files and the finished PDFs shown under "Recent" | To do the job you asked for, and to let you save, share or open the result | App cache |
 
 **How long temporary files are kept.** Copies of your input files and working files are deleted as soon as a job has
 finished, failed or been cancelled. The one exception: for a PDF you protected with a password, the app keeps an
-unprotected copy so it can show you the preview; that copy is deleted together with the result. A finished PDF is deleted when you remove it from "Recent", when more than 10
-results have pushed it out of that list, and when you close the app. No temporary file is kept longer than 24 hours
-while the app is in use. Anything left over after a crash is deleted the next time the app starts. Android may also
-clear the cache at any time. The app has no background work, so it cannot delete anything while it is not running:
-if Android stops the app in the background, the leftovers stay until you open the app again.
+unprotected copy so it can show you the preview; that copy is deleted together with the result. A finished PDF is
+deleted when you remove it from "Recent", when more than 10 results have pushed it out of that list, and when you
+close the app. No temporary file is kept longer than 24 hours while the app is in use. Anything left over after a
+crash is deleted the next time the app starts. Android may also clear the cache at any time. The app has no
+background work, so it cannot delete anything while it is not running: if Android stops the app in the background,
+the leftovers stay until you open the app again.
 
 The app keeps no history database and no list of file names. When a result is gone from "Recent", the app knows
 nothing about it any more.
@@ -58,13 +61,14 @@ from another app.
 ## Android backup
 
 If you have turned on backup to your Google account in Android's settings, or you move to a new phone, Android may
-copy the app's settings, and with them the count of created PDFs, which is kept in the same place. Nothing else is
-included: no documents, no temporary files and not the supporter flag. This is Android's feature under Google's
-terms; you can turn it off in Android's settings.
+copy the app's settings, and with them the count of created PDFs and which tip prompts were shown and when, which
+are kept in the same place. Nothing else is included: no documents, no temporary files and not the supporter flag.
+This is Android's feature under Google's terms; you can turn it off in Android's settings.
 
 ## What leaves your phone (Google Play edition)
 
-Your documents don't. These are the only three ways the Google Play edition talks to anything outside the phone.
+Your documents don't. These are the only three ways the Google Play edition talks to anything outside the phone. The
+first has two parts: what the app asks Google Play, and what Google's billing library reports by itself.
 
 ### 1. Google Play, for tips
 
@@ -76,10 +80,18 @@ The app asks the Google Play app on your phone about purchases each time the app
 tip that was interrupted and to confirm the supporter thank-you), when you open the support sheet and when you leave a
 tip.
 
-The billing library is Google's code running inside the app. It talks to Google Play on the phone and may send
-Google technical information about the app and the purchase, as described in
-[Google's privacy policy](https://policies.google.com/privacy). We receive none of it. Purchases can be restored on
-another phone signed in to the same Google account ("Restore purchases" in the support sheet).
+Purchases can be restored on another phone signed in to the same Google account ("Restore purchases" in the support
+sheet).
+
+**Google Play Billing library reports.** The Play Billing library, written and supplied by Google, is part of the
+Google Play edition. It talks to Google Play on the phone, and it sends technical reports about its own work (for
+example which billing step ran and its result, and the library version) to Google's logging service at
+`firebaselogging.googleapis.com` and `firebaselogging-pa.googleapis.com`. The library decides what goes in these
+reports, not us. It uses Android's job scheduler, so a report may be sent a little later, also while the app isn't
+open. Because the app asks Google Play about purchases each time it comes to the foreground, this applies to everyone
+who uses the Google Play edition, also if you never leave a tip. We don't receive these reports and can't see them.
+
+Both are covered by [Google's privacy policy](https://policies.google.com/privacy).
 
 ### 2. The Google document scanner
 
@@ -128,7 +140,8 @@ browser; what happens on a payment page you open from there is governed by that 
 
 ## Children
 
-The app is not directed at children under 13 and collects no data from anyone.
+The app is not directed at children under 13. We collect no data from anyone; what Google's components receive is
+described above.
 
 ## Your choices
 
@@ -138,8 +151,8 @@ in your control:
 - Removing a result from "Recent" deletes that file. Closing the app deletes all results.
 - Android's Settings › Apps › PDF Werkstatt › Storage › Clear storage removes everything the app saved.
 - Uninstalling removes everything.
-- For data Google holds about a purchase or about the scanner metrics, contact Google or use your Google account's
-  privacy settings.
+- For data Google holds about a purchase, the billing reports or the scanner metrics, contact Google or use your
+  Google account's privacy settings.
 
 ## Law and your rights
 
@@ -154,8 +167,8 @@ you live.
 
 ## Changes
 
-If the app changes how it handles data, we'll update this policy and its effective date first. The app's About screen
-links here.
+If the app changes how it handles data, we'll update this policy and its effective date first. A change to the
+promises will be shown in the app before it applies. The app's About screen links here.
 
 ## Contact
 

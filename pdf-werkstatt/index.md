@@ -36,7 +36,8 @@ can buy me a coffee; nobody has to.
 - **Your files never leave the phone.** The app has no server and uploads nothing.
 - **No tracking.** No analytics, no advertising ID, no crash reporting.
 - **No ads.**
-- **No hidden processes.** The app works only while it is open.
+- **No hidden processes.** The app works only while it is open, except that in the Google Play edition Google's
+  billing library may send its own report to Google a little later.
 
 The [privacy policy](privacy.md) says exactly what the Google Play edition does with Google Play, the document
 scanner and web pages.

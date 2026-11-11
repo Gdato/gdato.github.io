@@ -23,7 +23,8 @@ A small tool that does its job and then leaves you alone. It isn't a way to coll
    who you are or what your documents contain.
 3. **No ads.** The app contains no advertising code, and we won't add any.
 4. **No hidden processes.** We wrote no background service, scheduled task or start-with-the-phone code. The app
-   works only while it is open.
+   works only while it is open. The one exception is Google's Play Billing library in the Google Play edition, which
+   may send its own report to Google a little later, when Android schedules it; the privacy policy explains this.
 
 The Google Play edition contains three things that talk to the outside: Google Play for tips, Google's document
 scanner, and the loading of a web page you ask the app to convert. The privacy policy explains exactly what each of
