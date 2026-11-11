@@ -39,8 +39,9 @@ Everything the app knows is kept in its private storage on your phone, which oth
 | Whether you are a supporter (Google Play edition) | So the supporter colour palettes work offline | App storage |
 | Temporary files: copies of the files you picked, pictures from the scanner, working files and the finished PDFs shown under "Recent" | To do the job you asked for, and to let you save, share or open the result | App cache |
 
-**How long temporary files are kept.** Copies of your input files and working files are deleted as soon as a job has
-finished, failed or been cancelled. The one exception: for a PDF you protected with a password, the app keeps an
+**How long temporary files are kept.** Copies of the files you pick are deleted at the latest when you close the app,
+and are never kept longer than 24 hours. Working files of a job are deleted as soon as the job has finished, failed
+or been cancelled. The one exception: for a PDF you protected with a password, the app keeps an
 unprotected copy so it can show you the preview; that copy is deleted together with the result. A finished PDF is
 deleted when you remove it from "Recent", when more than 10 results have pushed it out of that list, and when you
 close the app. No temporary file is kept longer than 24 hours while the app is in use. Anything left over after a
@@ -124,7 +125,8 @@ Nothing is sent to us, and the app itself contacts no other website.
 
 ## The edition outside Google Play
 
-The edition distributed outside Google Play contains no Google code and has no internet permission, so none of the
+The edition distributed outside Google Play contains no Google Play services, Google billing or other Google
+service code and has no internet permission, so none of the
 three points above applies to it: it has no Google Play Billing and no Google scanner, and it cannot load web pages.
 It scans with its own camera screen, on the phone. Its support screen opens the [support page](support.md) in your
 browser; what happens on a payment page you open from there is governed by that service's own policy.
