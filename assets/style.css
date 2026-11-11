@@ -416,14 +416,16 @@ main > section, main > .cards { margin-bottom: var(--gap); }
    hand, like at the start of the second game. Point at him or at the greeting and he swings. Only on wide screens,
    where he has the empty space between the greeting and the desk to himself. */
 .bar { position: relative; z-index: 2; }   /* the bar and what hangs from it stay above the page */
-.egg--hang { left: 35rem; top: 100%; width: 44px; transform-origin: 50% 0; animation: hang-idle 6s ease-in-out infinite; }
-.egg--hang .egg__art { transition: none; }
-.egg--hang:hover .egg__art { transform: none; }
+/* The hover box stays still and is larger than him, so the swing doesn't carry him out from under the pointer
+   (which would end the hover and start the swing over). Only .hang__swing moves. */
+.egg--hang { left: calc(35rem - 28px); top: 100%; width: 100px; height: 140px; }
+.hang__swing { display: block; width: 44px; margin-inline: auto; transform-origin: 50% 0; animation: hang-idle 6s ease-in-out infinite; }
+.egg--hang .egg__art, .egg--hang:hover .egg__art { transition: none; transform: none; }
 .hang__legs, .hang__chest { transform-box: fill-box; }
 .hang__legs { transform-origin: 0 0; }
 .hang__chest { transform-origin: 55% 0; }
 /* A pendulum: fastest through the middle, slowing at each end. The legs and the chest trail a little behind. */
-.egg--hang:hover, body:has(.mi:hover) .egg--hang { animation: hang-swing 1.9s infinite; }
+.egg--hang:hover .hang__swing, body:has(.mi:hover) .hang__swing { animation: hang-swing 1.9s infinite; }
 .egg--hang:hover .hang__legs, body:has(.mi:hover) .hang__legs { animation: hang-trail 1.9s .14s infinite; }
 .egg--hang:hover .hang__chest, body:has(.mi:hover) .hang__chest { animation: hang-trail-chest 1.9s .1s infinite; }
 @keyframes hang-idle { 0%, 100% { transform: rotate(-1.2deg); } 50% { transform: rotate(1.2deg); } }
@@ -447,8 +449,8 @@ main > section, main > .cards { margin-bottom: var(--gap); }
 }
 /* Reduced motion: no idle sway, and only a slow, small swing while someone points at him. */
 @media (prefers-reduced-motion: reduce) {
-  .egg--hang { animation: none; }
-  .egg--hang:hover, body:has(.mi:hover) .egg--hang { animation: hang-swing-soft 3.2s ease-in-out infinite; }
+  .hang__swing { animation: none; }
+  .egg--hang:hover .hang__swing, body:has(.mi:hover) .hang__swing { animation: hang-swing-soft 3.2s ease-in-out infinite; }
   .egg--hang:hover .hang__legs, body:has(.mi:hover) .hang__legs, .egg--hang:hover .hang__chest, body:has(.mi:hover) .hang__chest { animation: none; }
 }
 @keyframes hang-swing-soft { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(4deg); } 75% { transform: rotate(-4deg); } }
