@@ -80,7 +80,8 @@ country gives you and that can't be waived by contract.
   else. It is tied to the Google account you used and can be restored on another phone ("Restore purchases").
 - **Refunds** follow Google Play's refund policy; you can request one through Google Play. Your statutory consumer
   rights stay in place.
-- The edition outside Google Play has no payments inside the app. It links to the [support page](support.md).
+- The edition outside Google Play has no payments inside the app. Its support screen opens a support page on this
+  website in your browser.
 
 ## 8. Brands and other companies
 

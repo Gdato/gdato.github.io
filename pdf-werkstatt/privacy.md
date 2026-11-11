@@ -128,7 +128,7 @@ Nothing is sent to us, and the app itself contacts no other website.
 The edition distributed outside Google Play contains no Google Play services, Google billing or other Google
 service code and has no internet permission, so none of the
 three points above applies to it: it has no Google Play Billing and no Google scanner, and it cannot load web pages.
-It scans with its own camera screen, on the phone. Its support screen opens the [support page](support.md) in your
+It scans with its own camera screen, on the phone. Its support screen opens a support page on this website in your
 browser; what happens on a payment page you open from there is governed by that service's own policy.
 
 ## Permissions

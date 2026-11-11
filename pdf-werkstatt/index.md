@@ -46,7 +46,6 @@ scanner and web pages.
 
 - [Privacy policy](privacy.md)
 - [Terms of use](terms.md)
-- [Support the app](support.md)
 
 ## Contact
 
