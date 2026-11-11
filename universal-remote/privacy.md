@@ -5,7 +5,7 @@ permalink: /universal-remote/privacy
 
 # Universal Remote: privacy policy
 
-Effective date: 4 November 2026  
+Effective date: 12 November 2026  
 Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
@@ -16,16 +16,17 @@ distributed on Google Play. It goes with the [terms of use](terms.md).
 
 - **No tracking.** No account with us, no analytics, no advertising ID, no crash reporting. We have no server, so we receive
   nothing about you, your phone or your devices.
-- **No ads.** Not in the free version, not in Pro. There is no advertising code in the app.
+- **No ads, nothing to buy.** Every feature is free for everyone. There is no advertising code in the app. In the
+  Google Play edition you can leave a tip, which unlocks nothing.
 - **No hidden processes.** The app talks only to the devices you choose, on your Wi-Fi or over Bluetooth, and to
-  Google Play for the Pro purchase. We wrote no background service, scheduled task or start-with-the-phone code.
+  Google Play if you choose to leave a tip. We wrote no background service, scheduled task or start-with-the-phone code.
   When you leave the app, its scans, status refreshes, live views and keep-alive connections pause; a job you sent to a
   device (cleaning, mowing, opening a gate) is finished by the device, and a file you cast stays available while it
   plays, for up to 30 minutes.
 
 There is one exception you should know about, and it comes from Google, not from us: the **Google Play Billing
-library**, which apps that sell through Google Play build in. It sends Google its own technical reports, described
-below. We never see them.
+library**, which apps that take tips or payments through Google Play build in. It runs only if you open the tip jar,
+and it sends Google its own technical reports, described below. We never see them.
 
 ## What stays on your phone
 
@@ -35,9 +36,9 @@ Everything the app knows is kept in its private storage on your phone, which oth
 |---|---|---|
 | Your saved devices: names, addresses, presets, settings, and the passwords, keys or tokens you enter for them | To connect to those devices again | App storage (`profiles`) |
 | App settings (developer mode, quiet discovery, that you accepted the first-run notice) | To remember your choices | App storage (`settings`) |
-| Whether you own Pro | So Pro works offline | App storage (`pro`) |
+| Whether a tip you started has gone through yet | So a tip paid later, or interrupted, is settled at the next start | App storage (`tips`) |
 | Fingerprints of the security certificates your TVs, speakers and hubs use | To refuse a different machine pretending to be your device. A changed certificate is always refused; to accept it, forget the device and add it again | App storage (`tls_pins`) |
-| Which home-screen widget opens which saved device (Pro) | So each widget opens the right device | App storage (`widgets`) |
+| Which home-screen widget opens which saved device | So each widget opens the right device | App storage (`widgets`) |
 | The phone's own Bluetooth name, only if an earlier version's Quiet discovery masked it and a pairing was interrupted | So the app can put the name back at its next start; the entry is then deleted | App storage (`incognito`) |
 | Pairing keys for Android TV and network debugging (ADB) | So a TV or box you paired accepts the phone again | Android Keystore, which doesn't let the key leave the phone |
 | Temporary files: a spoken announcement or a file you send to a speaker or TV | To serve it to that device. While it plays, a cast file is served by a small temporary server in the app at a random address on your home network, which other devices on that network could also reach. Only one such server runs at a time: casting the next file stops the previous one. It stops after 30 minutes at most, and the copied file is then deleted | App cache; Android may clear it at any time |
@@ -48,14 +49,13 @@ file you pick yourself.
 **Android's own backup.** If you have turned on backup to your Google account in Android's settings, Android may copy
 only the app's settings (`settings`: theme and developer options, and that you accepted the first-run notice) into that
 backup. Your saved devices with their logins, keys and tokens, the certificate fingerprints, the widget list, the
-`incognito` entry and the Pro flag are all excluded from Google backup and from phone-to-phone transfer. Pro is restored
-from Google Play instead ("Restore purchase").
+`incognito` entry and the tip note are all excluded from Google backup and from phone-to-phone transfer.
 
-**Files you create.** With Pro you can save a backup of your devices. It is encrypted with a password you choose, at least 10
+**Files you create.** You can save a backup of your devices. It is encrypted with a password you choose, at least 10
 characters (AES-256-GCM, key derived with PBKDF2 at 600,000 iterations), and it goes only where you save it. Car or machine recordings (CSV) are also
 saved only where you choose. If you save either to a cloud folder, that service's own privacy terms apply.
 
-**Home-screen shortcuts and widgets** (Pro) store the device's name and an internal reference with your launcher. A widget only opens the app on that device: it never contacts the device and runs on no schedule.
+**Home-screen shortcuts and widgets** store the device's name and an internal reference with your launcher. A widget only opens the app on that device: it never contacts the device and runs on no schedule.
 
 **Diagnostics log.** Only in developer mode, the app writes technical events (event names, device addresses, timings,
 error codes; never passwords, keys or tokens) to Android's system log on the phone. It is never uploaded. It can be
@@ -66,17 +66,15 @@ read only from a computer connected by USB with debugging turned on.
 Normally, nothing: the app talks directly to your devices over Bluetooth or on your local network. These are the only
 exceptions in the Google Play version.
 
-### 1. Google Play, for the Pro purchase
+### 1. Google Play, only if you open the tip jar
 
-Only when you open a Pro feature or the Pro page, buy, or tap "Restore purchase", the app asks the Google Play app on your phone whether your Google account owns Pro and what it costs. If you
-own Pro, the app also confirms the purchase about once a week when it starts, so a refunded purchase doesn't stay
-unlocked. The Pro page opens from Settings, when you reach the free limit of 2 devices, and when you tap a Pro feature as a
-free user: the developer-mode switch, backup and restore, home-screen shortcuts and widgets, and the Pro locks on the
-camera, dashcam and car-diagnostics screens. If you use the free version and never open a Pro feature or the Pro page,
-the app doesn't contact Google Play at all. When you buy, Google Play shows its own
-payment screen. Google Play then talks to Google using your Google account. What Google receives from the app: its
-package name, the product (`pro_unlock`) and, after a purchase, a confirmation for that purchase (so Google doesn't
-refund it automatically). We never receive your name, email address or payment details.
+Everything in the app is free. Only when you open the tip jar ("Buy me a coffee", in Settings › About) does the app
+ask the Google Play app on your phone for the prices of the tips. If you leave a tip, Google Play shows its own payment
+screen and talks to Google using your Google account; the app then confirms the tip to Google Play so it can be given
+again. If a tip was started but hasn't gone through yet (paid later, or interrupted), the app checks it once more at
+its next start. If you never open the tip jar, the app doesn't contact Google Play at all. What Google receives from
+the app: its package name, the tip you chose (`tip_small`, `tip_medium` or `tip_large`) and the confirmation. We never
+receive your name, email address or payment details.
 
 ### 2. Google Play Billing library reports
 
@@ -84,8 +82,8 @@ The Play Billing library, written and supplied by Google, is part of the app. It
 work (for example which billing step ran and its result, and the library version) to Google's logging service at
 `firebaselogging.googleapis.com` and `firebaselogging-pa.googleapis.com`. The library decides what goes in these
 reports, not us. It uses Android's job scheduler, so a report may be sent a little later, also while the app isn't
-open. This happens only when the app talks to Google Play (see above), never for a free user who doesn't open a Pro
-feature or the Pro page. We don't receive these reports and can't see them.
+open. This happens only when the app talks to Google Play (see above), never if you don't open the tip jar. We don't
+receive these reports and can't see them.
 
 Both are covered by [Google's privacy policy](https://policies.google.com/privacy).
 
@@ -146,7 +144,7 @@ you added. Fewer devices appear, and slowly, because devices re-announce only ev
 - **Location**, Android 11 and older only: Android requires it for Bluetooth scanning. The app doesn't read your
   location.
 - **Network access and Wi-Fi multicast**: to find and control devices on your Wi-Fi.
-- **Google Play billing**: for the Pro purchase.
+- **Google Play billing**: for tips.
 
 ## Children
 
@@ -160,7 +158,7 @@ in your control:
 - "Forget device" removes a saved device with its login and, for Wi-Fi devices, its certificate fingerprint.
 - Android's Settings › Apps › Universal Remote › Storage › Clear storage removes everything the app saved.
 - Uninstalling removes everything, including the Keystore keys.
-- For data Google holds about your purchase or the billing reports, contact Google or use your Google account's
+- For data Google holds about a tip or the billing reports, contact Google or use your Google account's
   privacy settings.
 
 ## Law and your rights

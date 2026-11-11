@@ -5,7 +5,7 @@ permalink: /universal-remote/terms
 
 # Universal Remote: terms of use
 
-Effective date: 4 November 2026  
+Effective date: 12 November 2026  
 Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
@@ -16,15 +16,15 @@ privacy policy ([privacy.md](privacy.md)) is part of these terms.
 ## 1. Our three promises
 
 An app for the people, by the people: made by people who use it themselves, for the people who use it. It isn't a
-way to collect data or to sell you anything beyond the one optional Pro unlock. So:
+way to collect data or to sell you anything: every feature is free for everyone. So:
 
 1. **No tracking.** There's no account with us, no analytics, no advertising ID and no crash reporting. We don't learn who
    you are, which devices you have or what you do with them. The one component we didn't write ourselves that talks
-   to the internet is Google's Play Billing library, and it runs only when you open the Pro page (or, if you own Pro,
-   about once a week to confirm the purchase); see the privacy policy for exactly what it does.
-2. **No ads.** Not in the free version, not in Pro. The app contains no advertising code, and we won't add any.
+   to the internet is Google's Play Billing library, and it runs only when you open the tip jar; see the privacy
+   policy for exactly what it does.
+2. **No ads.** The app contains no advertising code, and we won't add any.
 3. **No hidden processes.** The app talks only to the devices you choose, on your own Wi-Fi or over Bluetooth, and
-   to Google Play to check and handle the Pro purchase. We wrote no background service, scheduled task or
+   to Google Play if you leave a tip. We wrote no background service, scheduled task or
    start-with-the-phone code. When you leave the app, its scans, status refreshes, live views and keep-alive
    connections pause, and hold-to-move controls, the mower joystick and mower blades the app switched on stop. A job
    you sent to a device, such as starting a robot vacuum, a mowing run or opening a gate, is finished by the device
@@ -73,18 +73,18 @@ own faults, or by changes a manufacturer makes to its devices.
 
 Nothing in these terms limits liability that can't be limited by law, such as liability for injury to life, body or
 health, or under product liability law. If you are a consumer, you keep all the rights that the consumer law of your
-country gives you and that can't be waived by contract, including statutory warranty rights for the Pro purchase.
+country gives you and that can't be waived by contract.
 
-## 6. Free version and Pro
+## 6. Free, and tips
 
-- The free version lets you scan, use the diagnostics and guides, and control up to 2 saved devices.
-- **Pro** is a one-time purchase through Google Play. It's not a subscription: you pay once and there are no further
-  charges. Pro unlocks unlimited devices and the extra features listed in the app.
+- The app is free: every feature, for everyone, with no limit on devices and no subscription.
+- In the Google Play edition you can leave a tip ("Buy me a coffee"). A tip is a voluntary thank-you: it unlocks
+  nothing, and nothing in the app depends on it.
 - Payment is handled entirely by Google Play under Google's terms. We never see your payment details.
 - **Refunds** follow Google Play's refund policy; you can request one through Google Play. Your statutory consumer
   rights stay in place.
-- **Restoring Pro.** Pro is tied to the Google account you bought it with. On a new phone or after reinstalling, sign
-  in to Google Play with the same account and use "Restore purchase" in the app.
+- **If you bought Pro in an earlier version:** Pro is no longer sold, and everything it unlocked is now free for
+  everyone, so you keep all of it without doing anything.
 
 ## 7. Brands and other companies
 
@@ -96,7 +96,7 @@ manufacturer.
 ## 8. Changes to these terms
 
 We may update these terms, for example when the app gains features or the law changes. The effective date at the top
-shows the current version. If a change matters to you (such as a change to the three promises or to Pro), the app
+shows the current version. If a change matters to you (such as a change to the three promises), the app
 will show it before it applies. If you don't agree, you can stop using the app and uninstall it.
 
 ## 9. Law

@@ -42,8 +42,8 @@
       text: "No background service and nothing that starts with the phone. When you leave the app, its scans and connections pause."
     - title: "Honest labels."
       text: "Each device says whether I tested it on my own hardware or whether it is still Beta."
-    - title: "Free to try, Pro once."
-      text: "Scanning, diagnostics, guides and two saved devices are free. Pro is a one-time purchase, not a subscription."
+    - title: "Free, all of it."
+      text: "Every feature, for everyone: no paid version, no subscription. If you like it, you can buy me a coffee."
   shot:
     src: /assets/shots/universal-remote/home
     alt: "Screenshot of Universal Remote in its dark theme: the My devices page before any device is saved, with the buttons Add device, Bluetooth audio, Pairing guide and Compatibility."
@@ -66,10 +66,10 @@
     fr: "Universal Remote n'a ni publicité ni pistage. Un don aide à acheter des appareils de test et finance le temps qu'il faut pour en prendre d'autres en charge."
     it: "Universal Remote non ha pubblicità né tracciamento. Una donazione aiuta a comprare dispositivi di prova e ripaga il tempo che serve per supportarne altri."
   play_note:
-    en: "In the Google Play version, the optional Pro unlock is paid through Google Play, which accepts Google Pay."
-    de: "In der Google-Play-Version wird die optionale Pro-Freischaltung über Google Play bezahlt, und Google Play akzeptiert Google Pay."
-    fr: "Dans la version Google Play, le déblocage Pro facultatif se paie via Google Play, qui accepte Google Pay."
-    it: "Nella versione Google Play, lo sblocco Pro facoltativo si paga tramite Google Play, che accetta Google Pay."
+    en: "The Google Play edition of Universal Remote has a tip jar inside the app (Settings → About). Tips are paid through Google Play, which accepts Google Pay, and unlock nothing."
+    de: "Die Google-Play-Ausgabe von Universal Remote hat ein Trinkgeldglas in der App. Trinkgelder werden über Google Play bezahlt, und Google Play akzeptiert Google Pay; sie schalten nichts frei."
+    fr: "L'édition Google Play de Universal Remote a un pot à pourboires dans l'app. Les pourboires se paient via Google Play, qui accepte Google Pay, et ne débloquent rien."
+    it: "L'edizione Google Play di Universal Remote ha un barattolo delle mance nell'app. Le mance si pagano tramite Google Play, che accetta Google Pay, e non sbloccano nulla."
 - id: jasstafel
   name: "Jass Tafel"
   full_name: "Jass Tafel – Schieber Zähler"

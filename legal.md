@@ -22,7 +22,9 @@ This page is about the website gdato.github.io. Each app has its own privacy pol
 
 Email: [{{ o.email }}](mailto:{{ o.email }})
 
-I run this site and publish the apps on it myself, as a private person. The site sells nothing; the apps are free.
+I run this site and publish the apps on it myself, as a private person. The site sells nothing, and every app is
+free, with every feature for everyone. In the Google Play editions you can leave an optional tip, which unlocks
+nothing.
 
 ## The short version
 

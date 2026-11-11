@@ -5,7 +5,7 @@ permalink: /jasstafel/privacy
 
 # Jass Tafel: privacy policy
 
-Effective date: 9 November 2026  
+Effective date: 12 November 2026  
 Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
@@ -31,7 +31,7 @@ that sell through Google Play must build in, is part of the Google Play edition.
 | Games: date, team names, the rules used, every round (trump, points, Weis, Stöck), the winner | The game history and the slate | App database (`jasstafel.db`) |
 | Your rule presets | To start a game with your table's house rules | App database |
 | Settings: theme, colour palette, large text, keep screen on, vibration, language, slate notation, deck, last team names | To remember your choices | App storage (`settings`) |
-| Whether you are a supporter (Google Play edition) | So the supporter palettes work offline | App storage (`support`) |
+| How many tips this phone has given, and whether one is still being settled (Google Play edition) | To thank you, and to finish a tip that was interrupted | App storage (`support`) |
 
 None of this is personal data unless you type personal names as team names; those stay on your phone like everything else.
 
@@ -54,14 +54,14 @@ network connection. Neither edition asks for runtime permissions.
 
 ## Google Play Billing (Google Play edition only)
 
-Tips and the one-time supporter unlock are purchases through Google Play. Google processes the payment and holds your
-payment details; we never see them. We only learn, through the billing library, that a purchase happened, so the app
-can thank you and, for the supporter unlock, remember it on your phone.
+Tips are purchases through Google Play, and they unlock nothing: every feature and every colour palette is free for
+everyone. Google processes the payment and holds your payment details; we never see them. We only learn, through the
+billing library, that a tip went through, so the app can thank you. The app counts on your phone how many tips it
+has received there, and nothing else.
 
 The billing library is Google's code running inside the app. It talks to Google Play on the phone and may send
 Google technical information about the app and the purchase, as described in
-[Google's privacy policy](https://policies.google.com/privacy). We receive none of it. Purchases can be
-restored on another phone signed in to the same Google account (Settings → Support → Restore purchases).
+[Google's privacy policy](https://policies.google.com/privacy). We receive none of it.
 
 ## Full edition (outside Google Play)
 
