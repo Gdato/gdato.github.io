@@ -38,7 +38,8 @@ Everything the app knows is kept in its private storage on your phone, which oth
 | Temporary files: copies of the files you picked, pictures from the scanner, working files and the finished PDFs shown under "Recent" | To do the job you asked for, and to let you save, share or open the result | App cache |
 
 **How long temporary files are kept.** Copies of your input files and working files are deleted as soon as a job has
-finished, failed or been cancelled. A finished PDF is deleted when you remove it from "Recent", when more than 10
+finished, failed or been cancelled. The one exception: for a PDF you protected with a password, the app keeps an
+unprotected copy so it can show you the preview; that copy is deleted together with the result. A finished PDF is deleted when you remove it from "Recent", when more than 10
 results have pushed it out of that list, and when you close the app. No temporary file is kept longer than 24 hours
 while the app is in use. Anything left over after a crash is deleted the next time the app starts. Android may also
 clear the cache at any time. The app has no background work, so it cannot delete anything while it is not running:
@@ -51,7 +52,8 @@ nothing about it any more.
 cloud folder, that service's privacy terms apply. When you share a PDF or open it with another app, only that app
 gets temporary permission to read that one file.
 
-The app doesn't use your location, contacts, photos or files, except the ones you pick yourself.
+The app doesn't use your location, contacts, photos or files, except the ones you pick yourself or share to the app
+from another app.
 
 ## Android backup
 
@@ -84,10 +86,9 @@ another phone signed in to the same Google account ("Restore purchases" in the s
 In the Google Play edition, the scanner is Google's document scanner (ML Kit), a part of Google Play services.
 
 - The pictures you take are processed on the phone. They are not sent to Google.
-- Google Play services downloads the scanner once, the first time it is needed.
+- Google Play services downloads the scanner once.
 - Google receives metrics about the performance and use of the scanner: device and app information, a
-  per-installation identifier, latency, configuration and error codes. Google uses them to measure and improve the
-  scanner. They contain no pictures and no document content.
+  per-installation identifier, latency, configuration and error codes. They contain no pictures.
 
 We don't receive these metrics and can't see them. They are covered by
 [Google's privacy policy](https://policies.google.com/privacy).
@@ -107,7 +108,7 @@ When you ask the app to turn a web page into a PDF, the app loads that page with
 - Cookies and other data the page stores are deleted when the conversion ends. Pages behind a login can't be
   converted.
 
-Nothing is sent to us, and no other website is contacted.
+Nothing is sent to us, and the app itself contacts no other website.
 
 ## The edition outside Google Play
 
@@ -122,8 +123,8 @@ browser; what happens on a payment page you open from there is governed by that 
   open the scanner for the first time. The Google Play edition has no camera permission: there the camera is used by
   Google's scanner in Google Play services.
 - **Network access and Google Play billing**: only in the Google Play edition, for the three things described above.
-- **No storage permission** in either edition. The app sees only the files you pick with Android's own picker, and
-  writes only where you save with Android's own dialog.
+- **No storage permission** in either edition. The app sees only the files you pick with Android's own picker or
+  share to it from another app, and writes only where you save with Android's own dialog.
 
 ## Children
 

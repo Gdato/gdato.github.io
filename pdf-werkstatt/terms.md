@@ -40,7 +40,7 @@ people by data protection law. You are responsible for how you use the app and f
 
 ## 3. Passwords
 
-When you protect a PDF with a password, the app does not keep that password anywhere. A forgotten password cannot be
+When you protect a PDF with a password, the app does not save that password. A forgotten password cannot be
 recovered by anyone, including the developer. Keep the password in a safe place, and keep the unprotected original if
 you may need it again.
 
@@ -48,8 +48,8 @@ you may need it again.
 
 The app builds the PDF itself, on the phone. The result can differ from the original: a web page may be laid out
 differently than in your browser, a scan may be cropped or straightened imperfectly, and compressing a PDF lowers the
-quality of its pictures. Check important documents before you send them, and keep your original files: the app never
-changes or deletes them.
+quality of its pictures. Check important documents before you send them, and keep your original files: the app works on
+copies and leaves the files you picked as they are.
 
 Results are temporary. They are deleted when you close the app (see the privacy policy), so save or share a PDF you
 want to keep.
