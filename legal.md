@@ -18,6 +18,8 @@ This page is about the website gdato.github.io. Each app has its own privacy pol
 ## Imprint
 
 {{ o.name }}  
+{{ o.street }}  
+{{ o.town }}  
 {{ o.country }}
 
 Email: [{{ o.email }}](mailto:{{ o.email }})

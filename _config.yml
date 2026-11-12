@@ -1,7 +1,7 @@
 title: G. Dato
 # The version of the site, shown in the menu bar and in the status bar at the bottom.
 # Raise it with every change you publish: the last number for fixes, the middle one for new things, the first for a new look.
-version: "1.1.10"
+version: "1.1.11"
 description: Small Android apps by G. Dato, made in Switzerland. No ads, no tracking.
 lang: en
 url: "https://gdato.github.io"
@@ -17,9 +17,11 @@ defaults:
 exclude:
   - README.md
   - NOTICE.md
-# Who runs the site, shown on the "Privacy & imprint" page (/privacy/): a real name and an email address.
-# A private, non-commercial site, so no postal address.
+# Who runs the site, shown on the "Privacy & imprint" page (/privacy/): name, postal address and email.
+# The same address Google Play shows to buyers.
 owner:
   name: "Guillermo Dato"
+  street: "Twirrenstrasse 32"
+  town: "8733 Eschenbach SG"
   country: "Switzerland"
   email: "guillermodato@gmail.com"
