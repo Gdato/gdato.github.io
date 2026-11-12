@@ -43,13 +43,21 @@ and are never kept longer than 24 hours. Working files of a job are deleted as s
 or been cancelled. The one exception: for a PDF you protected with a password, the app keeps an
 unprotected copy so it can show you the preview; that copy is deleted together with the result. A finished PDF is
 deleted when you remove it from "Recent", when more than 10 results have pushed it out of that list, and when you
-close the app. No temporary file is kept longer than 24 hours while the app is in use. Anything left over after a
-crash is deleted the next time the app starts. Android may also clear the cache at any time. The app has no
-background work, so it cannot delete anything while it is not running: if Android stops the app in the background,
-the leftovers stay until you open the app again.
+close the app. Closing the app means swiping it away from the list of recent apps, or, on Android 11 and older,
+leaving it with Back.
 
-The app keeps no history database and no list of file names. When a result is gone from "Recent", the app knows
-nothing about it any more.
+**When Android stops the app in the background.** Android may stop an app it does not show, for example while you
+answer a message. You did not close the app then, so nothing is lost: the unsaved PDFs under "Recent", the pages you
+were arranging and the text you were typing stay in the app cache, and are there again when you come back. To find
+them again, the app writes a short note beside them in the same cache: which results are in "Recent" (their names,
+sizes and whether you saved them) and what the work under way consists of. Passwords are never written down; a job
+that needs one asks again. All of this is deleted when you close the app (if Android had already stopped it, the
+next time you open it), and in any case once it is 24 hours old: the app deletes older temporary files whenever it
+runs, and never uses them. Anything left over after a crash is deleted the next time the app starts. Android may
+also clear the cache at any time.
+
+The app keeps no history database. The note above lists only what is in "Recent" right now; when a result is gone
+from "Recent", the app knows nothing about it any more.
 
 **Files you save or share.** A PDF you save goes only where you choose in Android's own save dialog. If that is a
 cloud folder, that service's privacy terms apply. When you share a PDF or open it with another app, only that app
