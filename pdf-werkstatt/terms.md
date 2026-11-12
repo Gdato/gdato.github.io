@@ -52,6 +52,11 @@ differently than in your browser, a scan may be cropped or straightened imperfec
 quality of its pictures. Check important documents before you send them, and keep your original files: the app works on
 copies and leaves the files you picked as they are.
 
+A signature drawn in the app is a picture of your signature on the page, not a digital certificate. "Black out" turns
+each page with a black box into a picture of itself, so that what was under the box is gone and that page's text can
+no longer be selected or searched. Answers filled into a form are locked into the page and can no longer be changed in
+the new PDF.
+
 Results are temporary. They are deleted when you close the app, and after 24 hours at the latest (see the privacy
 policy), so save or share a PDF you want to keep.
 
