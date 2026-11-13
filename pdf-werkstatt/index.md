@@ -40,7 +40,7 @@ can buy me a coffee; nobody has to.
   billing library may send its own report to Google a little later.
 
 The [privacy policy](privacy.md) says exactly what the Google Play edition does with Google Play, the document
-scanner and web pages.
+scanner, text recognition and web pages.
 
 ## The fine print, in plain words
 

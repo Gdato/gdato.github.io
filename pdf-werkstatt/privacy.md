@@ -5,7 +5,7 @@ permalink: /pdf-werkstatt/privacy
 
 # PDF Werkstatt: privacy policy
 
-Effective date: 12 November 2026  
+Effective date: 13 November 2026  
 Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
@@ -25,7 +25,7 @@ Google Play and the one distributed outside it. It goes with the [terms of use](
 
 There are three things you should know about, and they apply only to the Google Play edition: Google Play for tips,
 with the reports of the **Google Play Billing library**, which apps that sell through Google Play build in; Google's
-document scanner; and the website you ask the app to turn into a PDF. They are described under "What leaves your
+document scanner and text recognition; and the website you ask the app to turn into a PDF. They are described under "What leaves your
 phone".
 
 ## What stays on your phone
@@ -98,14 +98,18 @@ who uses the Google Play edition, also if you never leave a tip. We don't receiv
 
 Both are covered by [Google's privacy policy](https://policies.google.com/privacy).
 
-### 2. The Google document scanner
+### 2. The Google document scanner and text recognition
 
-In the Google Play edition, the scanner is Google's document scanner (ML Kit), a part of Google Play services.
+In the Google Play edition, the scanner is Google's document scanner (ML Kit), a part of Google Play services. When
+you make a PDF searchable, the words in its pictures are read by Google's text recognition (ML Kit), also a part of
+Google Play services.
 
-- The pictures you take are processed on the phone. They are not sent to Google.
-- Google Play services downloads the scanner once.
-- Google receives metrics about the performance and use of the scanner: device and app information, a
-  per-installation identifier, latency, configuration and error codes. They contain no pictures.
+- The pictures you take, and the pages whose words are read, are processed on the phone. They are not sent to
+  Google, and neither are the words.
+- Google Play services downloads each of the two once, the first time it is needed.
+- Google receives metrics about the performance and use of the scanner and of text recognition: device and app
+  information, a per-installation identifier, latency, configuration and error codes. They contain no pictures and no
+  text.
 
 We don't receive these metrics and can't see them. They are covered by
 [Google's privacy policy](https://policies.google.com/privacy).
@@ -131,7 +135,8 @@ Nothing is sent to us, and the app itself contacts no other website.
 
 The edition distributed outside Google Play contains no Google Play services, Google billing or other Google
 service code and has no internet permission, so none of the
-three points above applies to it: it has no Google Play Billing and no Google scanner, and it cannot load web pages.
+three points above applies to it: it has no Google Play Billing, no Google scanner and no Google text recognition, and
+it cannot load web pages.
 It scans with its own camera screen, on the phone. Its support screen opens a support page on this website in your
 browser; what happens on a payment page you open from there is governed by that service's own policy.
 
@@ -157,7 +162,8 @@ in your control:
 - Removing a result from "Recent" deletes that file. Closing the app deletes all results.
 - Android's Settings › Apps › PDF Werkstatt › Storage › Clear storage removes everything the app saved.
 - Uninstalling removes everything.
-- For data Google holds about a purchase, the billing reports or the scanner metrics, contact Google or use your
+- For data Google holds about a purchase, the billing reports or the metrics of the scanner and of text recognition,
+  contact Google or use your
   Google account's privacy settings.
 
 ## Law and your rights

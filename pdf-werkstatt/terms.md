@@ -27,7 +27,7 @@ A small tool that does its job and then leaves you alone. It isn't a way to coll
    may send its own report to Google a little later, when Android schedules it; the privacy policy explains this.
 
 The Google Play edition contains three things that talk to the outside: Google Play for tips, Google's document
-scanner, and the loading of a web page you ask the app to convert. The privacy policy explains exactly what each of
+scanner and text recognition, and the loading of a web page you ask the app to convert. The privacy policy explains exactly what each of
 them does. The edition outside Google Play has none of them.
 
 If we ever have to change one of these promises, we'll say so clearly in the app before the change takes effect, and
