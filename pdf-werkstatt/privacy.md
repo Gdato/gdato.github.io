@@ -5,7 +5,7 @@ permalink: /pdf-werkstatt/privacy
 
 # PDF Werkstatt: privacy policy
 
-Effective date: 13 November 2026  
+Effective date: 14 November 2026  
 Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
@@ -36,6 +36,7 @@ Everything the app knows is kept in its private storage on your phone, which oth
 |---|---|---|
 | Settings (appearance including the colour palette, language, text size, paper size, screen and vibration options), and that you have seen the welcome screens | To remember your choices | App storage |
 | The count of created PDFs, and which tip prompts were shown and when | So the app can ask, once in a while and not too often, whether you would like to leave a tip. Only the number and the dates are kept, nothing about the files | App storage |
+| Signatures and stamps you chose to keep, only if you ticked the box to keep one: a signature as the lines you drew, a stamp as its picture, each with the name you gave it (at most three of each) | So that you can place them again without drawing or picking them anew | App storage, in Android's "no backup" folder |
 | Temporary files: copies of the files you picked, pictures from the scanner, working files and the finished PDFs shown under "Recent" | To do the job you asked for, and to let you save, share or open the result | App cache |
 
 **How long temporary files are kept.** Copies of the files you pick are deleted at the latest when you close the app,
@@ -66,11 +67,18 @@ gets temporary permission to read that one file.
 The app doesn't use your location, contacts, photos or files, except the ones you pick yourself or share to the app
 from another app.
 
+**Kept signatures and stamps.** A signature you draw, or a picture you place (a logo, a stamp, a photographed
+signature), is kept for next time only if you tick the box to keep it; that box is unticked every time. A kept
+signature is a drawn picture of your signature, not a digital signature. It stays in the app's own storage on your
+phone, which other apps can't read, until you delete it: one by one, or all at once with "Delete all kept signatures
+and stamps" in the app's Settings.
+
 ## Android backup
 
 If you have turned on backup to your Google account in Android's settings, or you move to a new phone, Android may
 copy the app's settings, and with them the count of created PDFs and which tip prompts were shown and when, which
-are kept in the same place. Nothing else is included: no documents and no temporary files.
+are kept in the same place. Nothing else is included: no documents, no temporary files and no kept signatures or
+stamps.
 This is Android's feature under Google's terms; you can turn it off in Android's settings.
 
 ## What leaves your phone (Google Play edition)
@@ -160,6 +168,7 @@ We hold no data about you, so there's nothing for us to hand over, correct or de
 in your control:
 
 - Removing a result from "Recent" deletes that file. Closing the app deletes all results.
+- Settings › Kept signatures and stamps deletes a kept signature or stamp, or all of them at once.
 - Android's Settings › Apps › PDF Werkstatt › Storage › Clear storage removes everything the app saved.
 - Uninstalling removes everything.
 - For data Google holds about a purchase, the billing reports or the metrics of the scanner and of text recognition,
