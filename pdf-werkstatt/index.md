@@ -49,7 +49,8 @@ can buy me a coffee; nobody has to.
 
 - **Your files never leave the phone.** The app has no server and uploads nothing.
 - **No tracking by us.** We use no analytics, no advertising ID and no crash reporting. Google's components in the
-  Google Play edition (text recognition, the document scanner, Google Play) send their own diagnostics to Google.
+  Google Play edition (text recognition, the document scanner, Google Play) are governed by Google's own terms and
+  privacy policy.
 - **No ads.**
 - **No hidden processes.** The app works only while it is open, except that in the Google Play edition Google's
   billing library may send its own report to Google a little later.

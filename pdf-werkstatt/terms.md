@@ -21,8 +21,8 @@ A small tool that does its job and then leaves you alone. It isn't a way to coll
    when you save or share it yourself.
 2. **No tracking by us.** There's no account with us, no analytics, no advertising ID and no crash reporting from us.
    We don't learn who you are or what your documents contain. Google's components in the Google Play edition (text
-   recognition, the document scanner, Google Play) send their own diagnostics to Google; the privacy policy explains
-   this.
+   recognition, the document scanner, Google Play) are governed by Google's own terms and privacy policy; the privacy
+   policy explains this.
 3. **No ads.** The app contains no advertising code, and we won't add any.
 4. **No hidden processes.** We wrote no background service, scheduled task or start-with-the-phone code. The app
    works only while it is open. The one exception is Google's Play Billing library in the Google Play edition, which

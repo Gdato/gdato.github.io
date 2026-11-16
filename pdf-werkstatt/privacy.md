@@ -18,14 +18,16 @@ Google Play and the one distributed outside it. It goes with the [terms of use](
   the phone itself. A file goes somewhere else only when you save or share it yourself.
 - **No tracking by us.** No account with us, no analytics, no advertising ID, no crash reporting of our own. We
   receive nothing about you, your phone or your documents. Google's components in the Google Play edition (text
-  recognition, the document scanner, Google Play) send their own diagnostics to Google; see "What leaves your phone".
+  recognition, the document scanner, Google Play) are governed by Google's own terms and privacy policy; see "What
+  leaves your phone".
 - **No ads.** There is no advertising code in the app.
 - **No hidden processes.** We wrote no background service, scheduled task or start-with-the-phone code. The app works
   only while it is open, with one exception in the Google Play edition that comes from Google, not from us: Google's
   billing library may send its own technical report to Google a little later.
 
 There are three things you should know about, and they apply only to the Google Play edition: Google Play for tips,
-with the reports of the **Google Play Billing library**, which apps that sell through Google Play build in; Google's
+with the **Google Play Billing library**, which apps that sell through Google Play build in and which may send its own
+technical reports to Google; Google's
 document scanner and text recognition; and the website you ask the app to turn into a PDF. They are described under "What leaves your
 phone".
 
@@ -85,25 +87,25 @@ This is Android's feature under Google's terms; you can turn it off in Android's
 ## What leaves your phone (Google Play edition)
 
 Your documents don't. These are the only three ways the Google Play edition talks to anything outside the phone. The
-first has two parts: what the app asks Google Play, and what Google's billing library reports by itself.
+first has two parts: what the app asks Google Play, and what Google's billing library may report by itself.
 
 ### 1. Google Play, for tips
 
-Tips are purchases through Google Play. Google processes the payment and holds your payment details; we never see
-them. We only learn, through the billing library, that a tip went through, so the app can thank you. Tips unlock
-nothing, so the app keeps no record of them.
+Tips are purchases through Google Play. Google Play handles the purchase under Google's own terms and privacy policy
+and holds your payment details; we never see them, and we receive no personal data through the app. The app on your
+phone only learns, through the billing library, that a tip went through, so it can thank you. Tips unlock nothing, so
+the app keeps no record of them.
 
 The app asks the Google Play app on your phone about purchases each time the app comes to the foreground (to finish a
 tip that was interrupted), when you open the support sheet and when you leave a
 tip.
 
-**Google Play Billing library reports.** The Play Billing library, written and supplied by Google, is part of the
-Google Play edition. It talks to Google Play on the phone, and it sends technical reports about its own work (for
-example which billing step ran and its result, and the library version) to Google's logging service at
-`firebaselogging.googleapis.com` and `firebaselogging-pa.googleapis.com`. The library decides what goes in these
-reports, not us. It uses Android's job scheduler, so a report may be sent a little later, also while the app isn't
-open. Because the app asks Google Play about purchases each time it comes to the foreground, this applies to everyone
-who uses the Google Play edition, also if you never leave a tip. We don't receive these reports and can't see them.
+**The billing library's own reports.** The Play Billing library, written and supplied by Google, is part of the
+Google Play edition. It talks to Google Play on the phone, and it includes Google's logging transport (Google
+DataTransport), which may send the library's own technical reports to Google, possibly a little later through
+Android's job scheduler, also while the app isn't open. The library decides what goes in these reports, not us.
+Because the app asks Google Play about purchases each time it comes to the foreground, this may apply to everyone who
+uses the Google Play edition, also if you never leave a tip. We receive none of this and can't see it.
 
 Both are covered by [Google's privacy policy](https://policies.google.com/privacy).
 
@@ -113,15 +115,13 @@ In the Google Play edition, the scanner is Google's document scanner (ML Kit), a
 you make a PDF searchable, the words in its pictures are read, on your phone, by Google's text recognition (ML Kit), also a part of
 Google Play services.
 
-- The pictures you take, and the pages whose words are read, are processed on the phone. They are not sent to
-  Google, and neither are the words.
+- The pictures you take, and the pages whose words are read, are processed on the phone.
 - Google Play services downloads each of the two once, the first time it is needed.
-- Google receives metrics about the performance and use of the scanner and of text recognition: device and app
-  information, a per-installation identifier, latency, configuration and error codes. They contain no pictures and no
-  text.
+- Google's components used by these features are governed by Google's own terms and
+  [privacy policy](https://policies.google.com/privacy). Google describes what its ML Kit components collect on its
+  [ML Kit data disclosure page](https://developers.google.com/ml-kit/android-data-disclosure).
 
-We don't receive these metrics and can't see them. They are covered by
-[Google's privacy policy](https://policies.google.com/privacy).
+We receive nothing from these components and can't see what they send.
 
 ### 3. Web pages
 
@@ -167,8 +167,8 @@ browser; what happens on a payment page you open from there is governed by that 
 
 ## Children
 
-The app is not directed at children under 13. We collect no data from anyone; what Google's components receive is
-described above.
+The app is not directed at children under 13. We collect no data from anyone; Google's components are covered by
+Google's own policy, as described above.
 
 ## Your choices
 
@@ -179,7 +179,7 @@ in your control:
 - Settings › Kept signatures and stamps deletes a kept signature or stamp, or all of them at once.
 - Android's Settings › Apps › PDF Werkstatt › Storage › Clear storage removes everything the app saved.
 - Uninstalling removes everything.
-- For data Google holds about a purchase, the billing reports or the metrics of the scanner and of text recognition,
+- For data Google holds about a purchase or from its components (billing, the scanner, text recognition),
   contact Google or use your
   Google account's privacy settings.
 
