@@ -5,7 +5,7 @@ permalink: /pdf-werkstatt/privacy
 
 # PDF Werkstatt: privacy policy
 
-Effective date: 14 November 2026  
+Effective date: 16 November 2026  
 Publisher: Gdato, Switzerland  
 Contact: guillermodato@gmail.com
 
@@ -16,8 +16,9 @@ Google Play and the one distributed outside it. It goes with the [terms of use](
 
 - **Your files never leave the phone.** The app has no server. Creating, converting and editing PDFs all happen on
   the phone itself. A file goes somewhere else only when you save or share it yourself.
-- **No tracking.** No account with us, no analytics, no advertising ID, no crash reporting. We receive nothing about
-  you, your phone or your documents.
+- **No tracking by us.** No account with us, no analytics, no advertising ID, no crash reporting of our own. We
+  receive nothing about you, your phone or your documents. Google's components in the Google Play edition (text
+  recognition, the document scanner, Google Play) send their own diagnostics to Google; see "What leaves your phone".
 - **No ads.** There is no advertising code in the app.
 - **No hidden processes.** We wrote no background service, scheduled task or start-with-the-phone code. The app works
   only while it is open, with one exception in the Google Play edition that comes from Google, not from us: Google's
@@ -109,7 +110,7 @@ Both are covered by [Google's privacy policy](https://policies.google.com/privac
 ### 2. The Google document scanner and text recognition
 
 In the Google Play edition, the scanner is Google's document scanner (ML Kit), a part of Google Play services. When
-you make a PDF searchable, the words in its pictures are read by Google's text recognition (ML Kit), also a part of
+you make a PDF searchable, the words in its pictures are read, on your phone, by Google's text recognition (ML Kit), also a part of
 Google Play services.
 
 - The pictures you take, and the pages whose words are read, are processed on the phone. They are not sent to
@@ -137,7 +138,14 @@ When you ask the app to turn a web page into a PDF, the app loads that page with
 - Cookies and other data the page stores are deleted when the conversion ends. Pages behind a login can't be
   converted.
 
-Nothing is sent to us, and the app itself contacts no other website.
+The internet is used only to load that page. Nothing is sent to us, and the app itself contacts no other website.
+
+## Printing
+
+When you print a PDF, the app hands it to Android's print service on your phone. From there, the print service you
+chose (for example your printer maker's, or Android's own) takes the file to the printer, and its own terms apply. We
+receive nothing. "Save as PDF" in the print dialog saves a copy where you choose. Printing works the same in both
+editions.
 
 ## The edition outside Google Play
 
