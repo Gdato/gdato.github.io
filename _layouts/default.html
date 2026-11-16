@@ -8,7 +8,7 @@
   {%- for a in site.data.apps -%}
     {%- if a.id == page.app %}{% assign app = a %}{% elsif a.url and page.url contains a.url %}{% assign app = a %}{% endif -%}
   {%- endfor -%}
-  {%- if page.title and page.title != site.title %}{% assign full_title = page.title | append: " · " | append: site.title %}{% else %}{% assign full_title = site.title | append: " · Small apps from Switzerland" %}{% endif -%}
+  {%- if page.title and page.title != site.title %}{% assign full_title = page.title | append: " · " | append: site.title %}{% else %}{% assign full_title = site.title | append: " · Apps from Switzerland" %}{% endif -%}
   {%- assign page_lang = page.lang | default: "en" -%}
   {%- assign description = page.description | default: app.tagline[page_lang] | default: site.description -%}
   {%- if app %}{% assign image = "/assets/og-" | append: app.id | append: ".png" %}{% else %}{% assign image = "/assets/og.png" %}{% endif %}
