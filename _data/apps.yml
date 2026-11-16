@@ -153,3 +153,18 @@
     de: "Werbefreier Schweizer Abfallkalender. Kein Konto, kein Tracking: Das Handy liest die Daten direkt bei deiner Gemeinde."
     fr: "Calendrier suisse des déchets, sans publicité. Ni compte, ni pistage : le téléphone lit les dates directement auprès de votre commune."
     it: "Calendario svizzero dei rifiuti, senza pubblicità. Niente account, niente tracciamento: il telefono legge le date direttamente dal tuo Comune."
+- id: pdf-werkstatt
+  name: "PDF Werkstatt"
+  full_name: "PDF Werkstatt"
+  status: soon
+  support: false
+  kind: "Android · PDF toolbox"
+  bullets:
+    - "Merge, split, compress, sign, fill in and black out PDFs"
+    - "Everything happens on your phone; nothing is uploaded"
+    - "On Google Play soon, free, no ads"
+  tagline:
+    en: "PDF toolbox for your phone: merge, split, compress, sign, fill in and black out. Nothing is uploaded. On Google Play soon."
+    de: "PDF-Werkzeugkasten fürs Handy: zusammenfügen, teilen, komprimieren, unterschreiben, ausfüllen und schwärzen. Nichts wird hochgeladen. Bald auf Google Play."
+    fr: "Boîte à outils PDF pour votre téléphone : fusionner, découper, compresser, signer, remplir et noircir. Rien n'est envoyé. Bientôt sur Google Play."
+    it: "Cassetta degli attrezzi PDF per il telefono: unire, dividere, comprimere, firmare, compilare e oscurare. Non viene caricato nulla. Presto su Google Play."
