@@ -31,7 +31,7 @@ Work on a PDF you already have:
 - **Fill in a form**, and mark up a paper form that is only a picture. **Make it flat** so the answers can no longer
   be changed.
 - **Page numbers and stamps** on the pages.
-- **Document details**: title, author and language.
+- **Document details**: title, author, subject, keywords and language.
 - **Compare** two versions of a PDF and see what changed.
 - **Find** a word in a PDF.
 - **Print** a PDF: the app hands it to Android's print service.
